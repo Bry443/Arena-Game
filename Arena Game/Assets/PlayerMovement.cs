@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Starting Controls");
+        rb = GetComponent<Rigidbody>(); // Get Rigidbody component just once
     }
 
     // Update is called once per frame
@@ -15,27 +17,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))  // Jump
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 6, 0);
+            rb.velocity = new Vector3(rb.velocity.x, 8f, rb.velocity.z);
         }
-        
+
         if (Input.GetKey("a"))  // Move Left
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(-4, 0, 0);
+            rb.velocity = new Vector3(-4f, rb.velocity.y, rb.velocity.z);
         }
 
         if (Input.GetKey("d"))  // Move Right
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(4, 0, 0);
+            rb.velocity = new Vector3(4f, rb.velocity.y, rb.velocity.z);
         }
 
         if (Input.GetKey("w"))  // Move Forward
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 4);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 4f);
         }
 
         if (Input.GetKey("s"))  // Move Backward
         {
-            GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -4);
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, -4f);
         }
+        
     }
 }
