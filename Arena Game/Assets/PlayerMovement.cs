@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
 {
     // Useful Headers
     [Header("Movement")]
+
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
     
     // Movement & Physics Parameters
     public float playerHeight;
-    public float moveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
     public float jumpForce;
     public float groundDrag;
     public float airMultiplier;
@@ -24,9 +29,18 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
     public Transform orientation;
+    public MovementState state;
+
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        freefall
+    }
 
     float xz_Input; // Horizontal input
     float y_Input;  // Vertical input
+    float moveSpeed;
 
     Vector3 moveDirection;
     // Start is called before the first frame update
@@ -42,17 +56,20 @@ public class PlayerMovement : MonoBehaviour
         // Ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
+        StateHandler();
         PlayerInput();
+
+        // Implements vertical jumps (Can only jump if touching ground)
+        if (Input.GetKey(jumpKey) && grounded)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            // rb.AddForce(transform.up * jumpForce, ForceMode.Impulse); // The new way using force (set y vector to 0 on the line above)
+        }
 
         // handle drag
         if (grounded) rb.drag = groundDrag;
         else rb.drag = 0;
         
-        // Implements vertical jumps (Can only jump if touching ground)
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-        }
     }
 
     private void FixedUpdate()
@@ -66,6 +83,27 @@ public class PlayerMovement : MonoBehaviour
         y_Input = Input.GetAxis("Vertical");
     }
 
+    private void StateHandler()
+    {
+        // Sprinting State
+        if (grounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
+        // Walking State
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+        }
+        // Freefall State
+        else if (!grounded)
+        {
+            state = MovementState.freefall;
+        }
+    }
+
     private void MovePlayer()
     {
         // calculate movement direction           
@@ -74,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
         // Force used for moving player character on ground or mid-air
         if (grounded) rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if (!grounded) rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
+
     }
 
 }
