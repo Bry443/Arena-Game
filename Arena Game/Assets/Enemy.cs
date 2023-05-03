@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     private NavMeshAgent enemy;
-    
     public Transform PlayerTarget;
 
     void Start()
