@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAiTutorial : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     public NavMeshAgent agent;
 
@@ -28,7 +28,7 @@ public class EnemyAiTutorial : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("PlayerCapsule").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
