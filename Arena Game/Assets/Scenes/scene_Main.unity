@@ -444,7 +444,7 @@ MonoBehaviour:
   sprintSpeed: 10
   jumpForce: 6
   groundDrag: 10
-  airMultiplier: 0.75
+  airMultiplier: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
