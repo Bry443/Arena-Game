@@ -5,12 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class EnterDoor : MonoBehaviour
 {
+    public bool goHome;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" && !goHome)
         {
             // Loads the next scene level
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(1);
+        }
+        else if (other.gameObject.name == "Player" && goHome)
+        {
+            // Loads the next scene level
+            SceneManager.LoadScene(0);
         }
     }
 }
