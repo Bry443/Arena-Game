@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 492820708}
   - component: {fileID: 492820707}
   - component: {fileID: 492820706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621490763}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 889731944}
   - component: {fileID: 889731943}
   - component: {fileID: 889731942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512694282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1010,17 +1010,17 @@ MonoBehaviour:
   player: {fileID: 492820712}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 256
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   health: 100
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
   timeBetweenAttacks: 1
   projectile: {fileID: 2071498732}
-  sightRange: 0
-  attackRange: 0
+  sightRange: 40
+  attackRange: 30
   playerInSightRange: 1
   playerInAttackRange: 1
 --- !u!1 &1608655673
@@ -1435,7 +1435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1996970637}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
