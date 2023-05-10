@@ -65,6 +65,9 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
             // rb.AddForce(transform.up * jumpForce, ForceMode.Impulse); // The new way using force (set y vector to 0 on the line above)
         }
+        if (Input.GetKeyDown(KeyCode.Space) & grounded) {
+            StaminaMovement.instance.UseStamina(10);
+        }
 
         // handle drag
         if (grounded) rb.drag = groundDrag;
@@ -90,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
+            StaminaMovement.instance.UseStamina(1);
         }
         // Walking State
         else if (grounded)
