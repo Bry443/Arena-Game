@@ -107,6 +107,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public MovementState GetState() {
+        return state;
+    }
+
     private void MovePlayer()
     {
         // calculate movement direction           
