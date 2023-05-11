@@ -63,10 +63,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(jumpKey) && grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            StaminaMovement.instance.UseStamina(10); // Use Stamina to Jump
+
             // rb.AddForce(transform.up * jumpForce, ForceMode.Impulse); // The new way using force (set y vector to 0 on the line above)
-        }
-        if (Input.GetKeyDown(KeyCode.Space) & grounded) {
-            StaminaMovement.instance.UseStamina(10);
         }
 
         // handle drag
@@ -93,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
-            StaminaMovement.instance.UseStamina(1);
+            StaminaMovement.instance.UseStamina(1); // Use Stamina when Sprinting
         }
         // Walking State
         else if (grounded)

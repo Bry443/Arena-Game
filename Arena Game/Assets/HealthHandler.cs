@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour
 {
-
     public Slider HealthBar;
     public float MaxHealth = 100;
     private float CurrentHealth;
@@ -28,9 +27,10 @@ public class HealthHandler : MonoBehaviour
     // Update is called once per frame
     void takeDamage(float damage) 
     {
-        if (CurrentHealth -= damage >= 0)
+        CurrentHealth = CurrentHealth - damage;
+
+        if (CurrentHealth >= 0)
         {
-            CurrentHealth -= damage;
             HealthBar.value = CurrentHealth;
         }
 
@@ -45,14 +45,13 @@ public class HealthHandler : MonoBehaviour
 
     void restoreHealth(float amount)
     {
-        CurrentHealth += amount;
+        CurrentHealth = CurrentHealth + amount;
         if (CurrentHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
         }
 
         HealthBar.value = CurrentHealth;
-
-        Debug.Log(amount, " health restored!");
+        Debug.Log(amount + "health restored!");
     }
 }
