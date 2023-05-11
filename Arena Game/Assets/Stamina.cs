@@ -15,7 +15,13 @@ public class Stamina : MonoBehaviour
     private Coroutine regen;
 
     public static Stamina instance;
-    public MovementState state;
+    // public MovementState state;
+     public enum MovementState
+    {
+        walking,
+        sprinting,
+        freefall
+    }
 
     private void Awake() {
         instance = this;
@@ -45,8 +51,9 @@ public class Stamina : MonoBehaviour
         
         while (CurrentStamina != 0)
         {
+            public MovementState state;
             state = PlayerMovement.instance.GetState();
-            if (state = MovementState.sprinting)
+            if (state == MovementState.sprinting)
             {
                 CurrentStamina -= amount;
                 staminaBar.value = CurrentStamina;

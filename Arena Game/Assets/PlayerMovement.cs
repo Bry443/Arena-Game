@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
+
+    public static PlayerMovement instance;
     
     // Movement & Physics Parameters
     public float playerHeight;
