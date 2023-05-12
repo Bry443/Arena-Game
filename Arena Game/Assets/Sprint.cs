@@ -14,7 +14,7 @@ public class Sprint : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         if (Input.GetKeyDown(KeyCode.Space) & grounded) {
-            StaminaMovement.instance.UseStamina(10);
+            Stamina.instance.UseStamina(10);
         }
     }
 }

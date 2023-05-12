@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StaminaMovement : MonoBehaviour
+public class Stamina : MonoBehaviour
 {
     public Slider staminaBar;
     private int maxStamina = 100;
@@ -12,7 +12,7 @@ public class StaminaMovement : MonoBehaviour
     private WaitForSeconds regenTick = new WaitForSeconds(0.1f);
     private Coroutine regen;
 
-    public static StaminaMovement instance;
+    public static Stamina instance;
 
     private void Awake() {
         instance = this;
