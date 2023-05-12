@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthHandler : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public Slider HealthBar;
     public float MaxHealth = 100;
     private float CurrentHealth;
 
-    public static HealthHandler instance;
+    public static Health instance;
 
     public void Awake()
     {
