@@ -15,15 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
     
-    // Movement & Physics Parameters
+    [Header("Movement Parameters")]
     public float playerHeight;
     public float walkSpeed;
     public float sprintSpeed;
     public float jumpForce;
     public float groundDrag;
     public float airMultiplier;
-    
-    bool readyToJump;       // Used to check if jump is possible (Ex: Player needs Stamina to jump)
+
+    [Header("Stamina Costs")]
+    public float currentStamina;
+    public float jumpStamina;
+    public float sprintStamina;
 
     [Header("Ground Check")]
     public LayerMask whatIsGround;
@@ -45,6 +48,12 @@ public class PlayerMovement : MonoBehaviour
     float moveSpeed;
 
     Vector3 moveDirection;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -61,13 +70,13 @@ public class PlayerMovement : MonoBehaviour
         StateHandler();
         PlayerInput();
 
+        currentStamina = Stamina.instance.GetCurrentStamina();
+
         // Implements vertical jumps (Can only jump if touching ground)
         if (Input.GetKey(jumpKey) && grounded)
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-            Stamina.instance.UseStamina(10); // Use Stamina to Jump
-
-            // rb.AddForce(transform.up * jumpForce, ForceMode.Impulse); // The new way using force (set y vector to 0 on the line above)
+            Stamina.instance.UseStamina(jumpStamina); // Use Stamina to Jump
         }
 
         // handle drag
@@ -88,12 +97,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
+
         // Sprinting State
         if (grounded && Input.GetKey(sprintKey))
         {
-            state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
-            Stamina.instance.DrainStamina(); // Use Stamina when Sprinting
+            if (currentStamina > 0)
+            {
+                state = MovementState.sprinting;
+                moveSpeed = sprintSpeed;
+                Stamina.instance.UseStamina(sprintStamina); // Use Stamina when Sprinting
+            }
+            else moveSpeed = walkSpeed;
         }
         // Walking State
         else if (grounded)

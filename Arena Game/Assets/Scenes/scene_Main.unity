@@ -316,8 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 520745091}
-  maxStamina: 1000
-  state: 0
+  maxStamina: 500
 --- !u!114 &520745091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1204,14 @@ PrefabInstance:
     - target: {fileID: 4651731836261670510, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651731836261670511, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
+      propertyPath: jumpStamina
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4651731836261670511, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
+      propertyPath: sprintStamina
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
