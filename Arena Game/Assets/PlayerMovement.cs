@@ -73,7 +73,6 @@ public class PlayerMovement : MonoBehaviour
         // handle drag
         if (grounded) rb.drag = groundDrag;
         else rb.drag = 0;
-        
     }
 
     private void FixedUpdate()
@@ -94,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
-            Stamina.instance.UseStamina(1); // Use Stamina when Sprinting
+            Stamina.instance.DrainStamina(); // Use Stamina when Sprinting
         }
         // Walking State
         else if (grounded)
@@ -109,7 +108,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public MovementState GetState() {
+    public MovementState GetState()
+    {
         return state;
     }
 

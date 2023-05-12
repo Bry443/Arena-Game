@@ -316,6 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBar: {fileID: 520745091}
+  maxStamina: 1000
+  state: 0
 --- !u!114 &520745091
 MonoBehaviour:
   m_ObjectHideFlags: 0
