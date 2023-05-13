@@ -73,10 +73,13 @@ public class PlayerMovement : MonoBehaviour
         currentStamina = Stamina.instance.GetCurrentStamina();
 
         // Implements vertical jumps (Can only jump if touching ground)
-        if (Input.GetKey(jumpKey) && grounded)
+        if (Input.GetKeyDown(jumpKey) && grounded)
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-            Stamina.instance.UseStamina(jumpStamina); // Use Stamina to Jump
+            if (currentStamina > jumpStamina)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                Stamina.instance.UseStamina(jumpStamina); // Use Stamina to Jump }
+            }
         }
 
         // handle drag

@@ -41,12 +41,15 @@ public class Stamina : MonoBehaviour
     {
         if (CurrentStamina - amount >= 0) 
         {
+            // Lose Stamina
             CurrentStamina -= amount;
             staminaBar.value = CurrentStamina;
             if (regen != null) 
             {
+                // Stop Stamina regen while in action
                 StopCoroutine(regen);
             }
+            // Resume Stamina regen after action complete
             regen = StartCoroutine(RegenStamina());
         }
         else 
