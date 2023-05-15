@@ -17,11 +17,13 @@ public class PlayerMovement : MonoBehaviour
     
     [Header("Movement Parameters")]
     public float playerHeight;
+    public float normalHeight;
     public float walkSpeed;
     public float sprintSpeed;
     public float jumpForce;
     public float groundDrag;
     public float airMultiplier;
+    public float crouchHeight;
 
     [Header("Stamina Costs")]
     public float currentStamina;
@@ -81,6 +83,16 @@ public class PlayerMovement : MonoBehaviour
                 Stamina.instance.UseStamina(jumpStamina); // Use Stamina to Jump }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            playerHeight = crouchHeight;
+        }
+        if (Input.GetKeyUp(KeyCode.C)) {
+            playerHeight = normalHeight;
+        }
+       
+       
+        
 
         // handle drag
         if (grounded) rb.drag = groundDrag;
