@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyJumper1 : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnemyJumper1 : MonoBehaviour
     private Rigidbody rb;
     public Transform playerTarget;
     public LayerMask whatIsGround;
+    
 
     public float jumpForce;
     public float timeBetweenJumps;
@@ -30,7 +32,9 @@ public class EnemyJumper1 : MonoBehaviour
 
             if (Time.time >= nextJumpTime)
             {
-                Jump();
+                //Jump();
+                //invoke(Jump() 1f)
+                StartCoroutine(Jump());
                 nextJumpTime = Time.time + timeBetweenJumps;
             }
         }
@@ -41,12 +45,14 @@ public class EnemyJumper1 : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private IEnumerator Jump()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isGrounded = false;
+        //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        yield return new WaitForSeconds(2f);
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {
