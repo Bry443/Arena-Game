@@ -9,7 +9,7 @@ public class Stamina : MonoBehaviour
     private static float regenRate = 0.1f;
     //private static float drainRate = 1f;
     public float maxStamina;
-    private float CurrentStamina;
+    public float CurrentStamina;
 
     //private WaitForSeconds drainTick = new WaitForSeconds(drainRate);
     private WaitForSeconds regenTick = new WaitForSeconds(regenRate);
@@ -17,13 +17,6 @@ public class Stamina : MonoBehaviour
     private Coroutine regen;
     
     public static Stamina instance;
-    
-    public enum MovementState
-    {
-        walking,
-        sprinting,
-        freefall
-    }
 
     private void Awake()
     {
@@ -77,24 +70,11 @@ public class Stamina : MonoBehaviour
         return CurrentStamina;
     }
 
-    // Add a Restore Stamina Function (for pickup items that fill stamina)
-
-
-    // Drain Stamina gradually while sprinting
-    //public IEnumerator DrainStamina()
-    //{
-    //    while (CurrentStamina < maxStamina)
-    //    {
-    //        if (PlayerMovement.instance.GetState().Equals(MovementState.sprinting))
-    //        {
-    //            CurrentStamina -= maxStamina / 100;
-    //            staminaBar.value = CurrentStamina;
-    //            yield return drainTick;
-
-    //        }
-    //    }
-    //    drain = null;
-    //}
-
+    // Restore an amount of Stamina
+    public void RestoreStamina(float amount)
+    {
+        CurrentStamina += amount;
+        staminaBar.value = CurrentStamina;
+    }
 
 }

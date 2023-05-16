@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     public Slider HealthBar;
     public float MaxHealth = 100;
-    private float CurrentHealth;
+    public float CurrentHealth;
 
     public static Health instance;
 
@@ -21,29 +21,24 @@ public class Health : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         HealthBar.maxValue = MaxHealth;
-        HealthBar.value = MaxHealth;
+        HealthBar.value = CurrentHealth;
     }
 
     // Update is called once per frame
-    void takeDamage(float damage) 
+    public void TakeDamage(float damage) 
     {
         CurrentHealth = CurrentHealth - damage;
-
-        if (CurrentHealth >= 0)
-        {
-            HealthBar.value = CurrentHealth;
-        }
+        HealthBar.value = CurrentHealth;
 
         // Need to add DEATH mechanic
-        else
+        if (HealthBar.value <= 0)
         {
-            CurrentHealth = 0f;
-            HealthBar.value = CurrentHealth;
+            Destroy(gameObject);    // Removes object from worldspace
             Debug.Log("YOU DIED");
         }
     }
 
-    void restoreHealth(float amount)
+    public void restoreHealth(float amount)
     {
         CurrentHealth = CurrentHealth + amount;
         if (CurrentHealth > MaxHealth)

@@ -13,11 +13,13 @@ public class EnterDoor : MonoBehaviour
         {
             // Loads the next scene level
             SceneManager.LoadScene(1);
+            Debug.Log("Loading Level 01");
         }
         else if (other.gameObject.name == "Player" && goHome)
         {
             // Loads the next scene level
             SceneManager.LoadScene(0);
+            Debug.Log("Returning to scene_Main");
         }
     }
 }

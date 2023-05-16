@@ -521,11 +521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4651731836261670511, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
       propertyPath: jumpStamina
-      value: 15
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4651731836261670511, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
       propertyPath: sprintStamina
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5db24225e26ef5f428721765d40334d6, type: 3}
