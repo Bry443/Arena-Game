@@ -5,21 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class EnterDoor : MonoBehaviour
 {
-    public bool goHome;
+    public int level = 1;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Player" && !goHome)
+        if (other.gameObject.name == "Player")
         {
-            // Loads the next scene level
-            SceneManager.LoadScene(1);
-            Debug.Log("Loading Level 01");
+            switch (level)
+            {
+                case 0:
+                    SceneManager.LoadScene(0);  // Should load scene_Main
+                    Debug.Log("Returning to scene_Main");
+                    break;
+                case 1:
+                    SceneManager.LoadScene(1);  // Loads the next scene level
+                    Debug.Log("Loading Level 01");
+                    break;
+                case 2:
+                    SceneManager.LoadScene(2);
+                    Debug.Log("Loading Level 02");
+                    break;
+                default:
+                    Debug.Log("Invalid Level or no level found");
+                    break;
+            }
         }
-        else if (other.gameObject.name == "Player" && goHome)
-        {
-            // Loads the next scene level
-            SceneManager.LoadScene(0);
-            Debug.Log("Returning to scene_Main");
-        }
+            
     }
 }
