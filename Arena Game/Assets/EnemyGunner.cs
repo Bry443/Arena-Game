@@ -5,11 +5,8 @@ using UnityEngine.AI;
 public class EnemyGunner : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public Transform player;
-
     public LayerMask whatIsGround, whatIsPlayer;
-
     public float health;
 
     //Patroling
@@ -76,7 +73,7 @@ public class EnemyGunner : MonoBehaviour
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
-        //agent.SetDestination(transform.position);
+        agent.SetDestination(transform.position);
 
         transform.LookAt(player);
 
@@ -84,15 +81,17 @@ public class EnemyGunner : MonoBehaviour
         {
             ///Attack code here
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+            //Enable projectile gravity
+            rb.useGravity = true;
+            rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 3f, ForceMode.Impulse);
             ///End of attack code
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
         // Move towards the player
-        agent.SetDestination(player.position);
+        //agent.SetDestination(player.position);
     }
     private void ResetAttack()
     {
