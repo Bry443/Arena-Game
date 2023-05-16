@@ -5095,13 +5095,13 @@ MonoBehaviour:
   jumpKey: 32
   sprintKey: 304
   playerHeight: 3
-  normalHeight: 3
   walkSpeed: 6
   sprintSpeed: 10
   jumpForce: 6
   groundDrag: 10
   airMultiplier: 0.75
-  crouchHeight: 0
+  crouchYScale: 0
+  startYScale: 0.5
   currentStamina: 100
   jumpStamina: 15
   sprintStamina: 1

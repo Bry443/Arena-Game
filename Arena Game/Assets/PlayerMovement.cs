@@ -14,16 +14,19 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode sprintKey = KeyCode.LeftShift;
 
     public static PlayerMovement instance;
+
     
     [Header("Movement Parameters")]
     public float playerHeight;
-    public float normalHeight;
     public float walkSpeed;
     public float sprintSpeed;
     public float jumpForce;
     public float groundDrag;
     public float airMultiplier;
-    public float crouchHeight;
+
+    [Header("Crouching")]
+    public float crouchYScale;
+    public float startYScale;
 
     [Header("Stamina Costs")]
     public float currentStamina;
@@ -62,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Starting Controls");
         rb = GetComponent<Rigidbody>(); // Get Rigidbody component just once
         rb.freezeRotation = true;
+        startYScale = transform.localScale.y;
     }
 
     private void Update()
@@ -85,10 +89,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.C)) {
-            playerHeight = crouchHeight;
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
         }
         if (Input.GetKeyUp(KeyCode.C)) {
-            playerHeight = normalHeight;
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
        
        
