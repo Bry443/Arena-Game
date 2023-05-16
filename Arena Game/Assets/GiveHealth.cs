@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GiveStamina : MonoBehaviour
+public class GiveHealth : MonoBehaviour
 {
-    public float amount = 200f;
+    public float amount = 10f;
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Stamina Box Touched");
+        Debug.Log("Health Box Touched");
         if (other.gameObject.name == "Player")
         {
-            Stamina.instance.RestoreStamina(amount);
+            Health.instance.RestoreHealth(amount);
             Destroy(gameObject);
         }
     }
+    
 }

@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void restoreHealth(float amount)
+    public void RestoreHealth(float amount)
     {
         CurrentHealth = CurrentHealth + amount;
         if (CurrentHealth > MaxHealth)
@@ -47,6 +47,6 @@ public class Health : MonoBehaviour
         }
 
         HealthBar.value = CurrentHealth;
-        Debug.Log(amount + "health restored!");
+        Debug.Log(amount + " Health restored!");
     }
 }

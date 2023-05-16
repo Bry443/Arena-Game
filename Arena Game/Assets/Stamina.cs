@@ -65,16 +65,20 @@ public class Stamina : MonoBehaviour
         regen = null;
     }
 
-    public float GetCurrentStamina()
-    {
-        return CurrentStamina;
-    }
-
     // Restore an amount of Stamina
     public void RestoreStamina(float amount)
     {
         CurrentStamina += amount;
         staminaBar.value = CurrentStamina;
+        Debug.Log(amount + " Stamina restored!");
     }
+
+
+    public float GetCurrentStamina()
+    {
+        return CurrentStamina;
+    }
+
+
 
 }

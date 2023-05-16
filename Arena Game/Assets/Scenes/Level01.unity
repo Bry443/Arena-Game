@@ -564,8 +564,9 @@ GameObject:
   - component: {fileID: 183519397}
   - component: {fileID: 183519396}
   - component: {fileID: 183519395}
+  - component: {fileID: 183519399}
   m_Layer: 0
-  m_Name: BoxOfHealth
+  m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,6 +650,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183519399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183519394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7559e8e8535c1884ea791bec7f380720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 50
 --- !u!1 &191705981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,7 +1919,6 @@ GameObject:
   - component: {fileID: 460523581}
   - component: {fileID: 460523580}
   - component: {fileID: 460523585}
-  - component: {fileID: 460523586}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Enemy
@@ -2058,20 +2071,6 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   MaxHealth: 100
   CurrentHealth: 0
---- !u!114 &460523586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 460523578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7141ceefb6453e04896afb22a1456169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitpoints: {fileID: 1955655740}
-  damage: 10
 --- !u!4 &473093957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b3ab048af98da574b802a5384a1b060c, type: 3}
@@ -3455,8 +3454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7141ceefb6453e04896afb22a1456169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitpoints: {fileID: 0}
-  damage: 100
+  damage: 20
 --- !u!65 &794893315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6578,7 +6576,7 @@ GameObject:
   - component: {fileID: 1735648755}
   - component: {fileID: 1735648754}
   m_Layer: 0
-  m_Name: BoxOfStamina
+  m_Name: StaminaPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6596,7 +6594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb0048dfcb13aa4d809e0ec58037e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminabar: {fileID: 0}
   amount: 200
 --- !u!65 &1735648755
 BoxCollider:
@@ -7520,17 +7517,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4808980466573868, guid: 6a889e51049401145a5079a85e07a9ed, type: 3}
   m_PrefabInstance: {fileID: 1763832345}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1955655740 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6195421763361200901, guid: e4ce226922b0fd64286000347d4f5659, type: 3}
-  m_PrefabInstance: {fileID: 933126196}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5a3f5af3c4aac44a988493719dd9b2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2013135247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b3ab048af98da574b802a5384a1b060c, type: 3}
