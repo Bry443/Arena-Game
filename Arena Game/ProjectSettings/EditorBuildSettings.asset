@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: e2e12b4945fd1fa4ea6c99ed25e8023b
-  - enabled: 1
-    path: Assets/Scenes/Brock's scenes/scene_brock.unity
-    guid: f583de2256835904580e47fa7a31899b
   m_configObjects: {}

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Stamina : MonoBehaviour
 {
     public Slider staminaBar;
-    private static float regenRate = 0.1f;
-    //private static float drainRate = 1f;
     public float maxStamina;
     public float CurrentStamina;
-
+    
+    private static float regenRate = 0.1f;
+    //private static float drainRate = 1f;
+    
     //private WaitForSeconds drainTick = new WaitForSeconds(drainRate);
     private WaitForSeconds regenTick = new WaitForSeconds(regenRate);
     //private Coroutine drain;
