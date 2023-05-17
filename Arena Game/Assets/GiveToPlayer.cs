@@ -30,6 +30,9 @@ public class GiveToPlayer : MonoBehaviour
                     Health.instance.TakeDamage(amount);
                     Destroy(gameObject);
                     break;
+                case 3:
+                    Debug.Log("Special Power!");
+                    break;
                 default:
                     Debug.Log("Effect not found");
                     break;
