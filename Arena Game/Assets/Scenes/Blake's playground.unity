@@ -5097,11 +5097,11 @@ MonoBehaviour:
   playerHeight: 3
   walkSpeed: 6
   sprintSpeed: 10
+  crouchSpeed: 60
   jumpForce: 6
   groundDrag: 10
   airMultiplier: 0.75
   crouchYScale: 0
-  startYScale: 0.5
   currentStamina: 100
   jumpStamina: 15
   sprintStamina: 1
@@ -5734,7 +5734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55fac49ea9dacf468008779961a5fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limit: 60
+  limit: 30
 --- !u!4 &1523205730
 Transform:
   m_ObjectHideFlags: 0

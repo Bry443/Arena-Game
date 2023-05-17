@@ -20,13 +20,14 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     public float walkSpeed;
     public float sprintSpeed;
+    public float crouchSpeed;
     public float jumpForce;
     public float groundDrag;
     public float airMultiplier;
 
     [Header("Crouching")]
     public float crouchYScale;
-    public float startYScale;
+    private float startYScale;
 
     [Header("Stamina Costs")]
     public float currentStamina;
@@ -45,12 +46,13 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
-        freefall
+        freefall,
+        crouching
     }
 
     float xz_Input; // Horizontal input
     float y_Input;  // Vertical input
-    float moveSpeed;
+    private float moveSpeed;
 
     Vector3 moveDirection;
 
@@ -90,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C)) {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            rb.AddForce(Vector3.down * 15f, ForceMode.Impulse);
         }
         if (Input.GetKeyUp(KeyCode.C)) {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
@@ -117,6 +119,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
+        // Crouching State
+        if (Input.GetKey(KeyCode.C)) {
+            state = MovementState.crouching;
+            moveSpeed = crouchSpeed;
+            Debug.Log("worked");
+        }
 
         // Sprinting State
         if (grounded && Input.GetKey(sprintKey))
