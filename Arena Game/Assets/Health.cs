@@ -33,6 +33,11 @@ public class Health : MonoBehaviour
         // Need to add DEATH mechanic
         if (HealthBar.value <= 0)
         {
+            // TODO: 
+            // 1. Play Game Over Message
+            // 2. Terminate Game
+            // 3. Add a Retry Game Button later
+
             Destroy(gameObject);    // Removes object from worldspace
             Debug.Log("YOU DIED");
         }

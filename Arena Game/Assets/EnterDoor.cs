@@ -14,16 +14,20 @@ public class EnterDoor : MonoBehaviour
             switch (level)
             {
                 case 0:
-                    SceneManager.LoadScene(0);  // Should load scene_Main
                     Debug.Log("Returning to scene_Main");
+                    SceneManager.LoadScene(0);  // Should load scene_Main
                     break;
                 case 1:
-                    SceneManager.LoadScene(1);  // Loads the next scene level
                     Debug.Log("Loading Level 01");
+                    SceneManager.LoadScene(1);  // Loads the next scene level
                     break;
                 case 2:
-                    SceneManager.LoadScene(2);
                     Debug.Log("Loading Level 02");
+                    SceneManager.LoadScene(2);
+                    break;
+                case 3:
+                    Debug.Log("Testing Damage from collision");
+                    Health.instance.TakeDamage(10f);
                     break;
                 default:
                     Debug.Log("Invalid Level or no level found");
