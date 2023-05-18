@@ -119,15 +119,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        // Crouching State
-        if (Input.GetKey(KeyCode.C)) {
-            state = MovementState.crouching;
-            moveSpeed = crouchSpeed;
-            Debug.Log("worked");
-        }
 
         // Sprinting State
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded && Input.GetKey(sprintKey) && !Input.GetKey(KeyCode.C))
         {
             if (currentStamina > 0)
             {
@@ -136,6 +130,11 @@ public class PlayerMovement : MonoBehaviour
                 Stamina.instance.UseStamina(sprintStamina); // Use Stamina when Sprinting
             }
             else moveSpeed = walkSpeed;
+        }
+        // Crouching State
+        else if (Input.GetKey(KeyCode.C)) {
+            state = MovementState.crouching;
+            moveSpeed = crouchSpeed;
         }
         // Walking State
         else if (grounded)
@@ -164,6 +163,11 @@ public class PlayerMovement : MonoBehaviour
         if (grounded) rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         else if (!grounded) rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
 
+    }
+
+    public void BoostSprint(float amount)
+    {
+        sprintSpeed += amount;
     }
 
 }
