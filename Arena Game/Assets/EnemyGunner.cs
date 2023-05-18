@@ -80,7 +80,11 @@ public class EnemyGunner : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            GameObject new_bullet = Instantiate(projectile, transform.position, Quaternion.identity);
+            new_bullet.AddComponent<Bullet>();
+            //objectYouCreate.AddComponent(script(ClassName));
+            Rigidbody rb = new_bullet.GetComponent<Rigidbody>();
+            //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             //Enable projectile gravity
             rb.useGravity = true;
             rb.AddForce(transform.forward * 40f, ForceMode.Impulse);

@@ -4,11 +4,21 @@ using UnityEngine;
 
  public class Bullet:MonoBehaviour
  {
+    private void Update()
+    {
+        Invoke(nameof(DestroySelf), 3f);
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+
      //Function will be called when this object hits an object with a collider
      void OnCollisionEnter(Collision collision)
     {    
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "Capsule")
+        if (collision.gameObject.name == "EnemyGunner")
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             Debug.Log("Touched gunner");
