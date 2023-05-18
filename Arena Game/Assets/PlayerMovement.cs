@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // Sprinting State
-        if (grounded && Input.GetKey(sprintKey))
+        if (grounded && Input.GetKey(sprintKey) && !Input.GetKey(KeyCode.C))
         {
             if (currentStamina > 0)
             {
@@ -135,7 +135,6 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.C)) {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
-            Debug.Log("worked");
         }
         // Walking State
         else if (grounded)
