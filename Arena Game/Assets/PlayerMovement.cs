@@ -166,4 +166,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void BoostSprint(float amount)
+    {
+        sprintSpeed += amount;
+    }
+
 }

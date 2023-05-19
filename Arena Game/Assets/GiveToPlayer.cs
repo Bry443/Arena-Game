@@ -32,6 +32,8 @@ public class GiveToPlayer : MonoBehaviour
                     break;
                 case 3:
                     Debug.Log("Special Power!");
+                    PlayerMovement.instance.BoostSprint(amount);
+                    Destroy(gameObject);
                     break;
                 default:
                     Debug.Log("Effect not found");
