@@ -129,7 +129,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f1a509a467f0ef4c88806286b918964, type: 2}
+  - {fileID: 2100000, guid: f88b74c6a536040458380d84e44e9eec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,12 +205,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683f2021cdc879a408fb5ff54b87a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpKey: 32
+  sprintKey: 304
   playerHeight: 3
-  moveSpeed: 6
+  walkSpeed: 0
+  sprintSpeed: 0
+  crouchSpeed: 0
   jumpForce: 8
   groundDrag: 10
   airMultiplier: 1
+  crouchYScale: 0
+  currentStamina: 0
+  jumpStamina: 0
+  sprintStamina: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   orientation: {fileID: 5697927681650273814}
+  state: 0
