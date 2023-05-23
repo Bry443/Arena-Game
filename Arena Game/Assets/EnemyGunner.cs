@@ -25,6 +25,7 @@ public class EnemyGunner : MonoBehaviour
 
     private void Awake()
     {
+        // change "Player" to your target
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -79,7 +80,7 @@ public class EnemyGunner : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            ///Attack code here
+            //Create bullet and add velocity
             GameObject new_bullet = Instantiate(projectile, transform.position, Quaternion.identity);
             new_bullet.AddComponent<Bullet>();
             //objectYouCreate.AddComponent(script(ClassName));
