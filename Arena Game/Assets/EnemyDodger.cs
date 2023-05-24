@@ -23,10 +23,10 @@ public class EnemyDodger : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Start()
-    {
-        InvokeRepeating("randomNumber", 0, 30);  
-    }
+    // private void Start()
+    // {
+    //     InvokeRepeating("randomNumber", 0, 30);  
+    // }
 
     private void Update()
     {
@@ -73,10 +73,5 @@ public class EnemyDodger : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
-    }
-
-    private int RandomNumber()
-    {
-        rnd = Random.Range(0, 100);
     }
 }
