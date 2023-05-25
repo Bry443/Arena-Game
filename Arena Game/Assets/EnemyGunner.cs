@@ -85,11 +85,18 @@ public class EnemyGunner : MonoBehaviour
             //objectYouCreate.AddComponent(script(ClassName));
             Rigidbody rb = new_bullet.GetComponent<Rigidbody>();
             //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            //Enable projectile gravity
-            rb.useGravity = true;
-            rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 3f, ForceMode.Impulse);
-            ///End of attack code
+            if (rb != null)
+            {
+                //Enable projectile gravity
+                rb.useGravity = true;
+                // Shooting velocity
+                rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                rb.AddForce(transform.up * 3f, ForceMode.Impulse);
+            }
+            else {
+                Debug.Log("Projectile missing Rigidbody");
+            }
+            
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -113,6 +120,7 @@ public class EnemyGunner : MonoBehaviour
         Destroy(gameObject);
     }
 
+// Visually shows attack and sight range
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

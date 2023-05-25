@@ -36,7 +36,7 @@ public class EnemyDodger : MonoBehaviour
         if (!playerInSightRange) Patroling();
         //if (playerInSightRange) ChasePlayer();
         while (playerInSightRange) {
-            rnd = Random.Range(0, 100);
+            var rnd = Random.Range(0, 100);
             if (rnd < 20) {
                 ChasePlayer();
                 }
@@ -46,7 +46,7 @@ public class EnemyDodger : MonoBehaviour
 
     private void Patroling()
     {
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -73,5 +73,12 @@ public class EnemyDodger : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+    }
+
+    // visually shows the radius of sightRange
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }

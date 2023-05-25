@@ -62,4 +62,11 @@ public class EnemyRunner : MonoBehaviour
     {
         agent.SetDestination(player.position);
     }
+    
+    // visually shows the radius of sightRange
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
 }
