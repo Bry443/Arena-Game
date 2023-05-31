@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyRunner : MonoBehaviour
+public class EnemyDodger : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
@@ -23,18 +23,30 @@ public class EnemyRunner : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    // private void Start()
+    // {
+    //     InvokeRepeating("randomNumber", 0, 30);  
+    // }
+
     private void Update()
     {
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         
         if (!playerInSightRange) Patroling();
-        if (playerInSightRange) ChasePlayer();
+        //if (playerInSightRange) ChasePlayer();
+        while (playerInSightRange) {
+            var rnd = Random.Range(0, 100);
+            if (rnd < 20) {
+                ChasePlayer();
+                }
+            
+        }
     }
 
     private void Patroling()
     {
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -62,7 +74,7 @@ public class EnemyRunner : MonoBehaviour
     {
         agent.SetDestination(player.position);
     }
-    
+
     // visually shows the radius of sightRange
     private void OnDrawGizmosSelected()
     {

@@ -6,7 +6,17 @@ using UnityEngine;
  {
     private void Update()
     {
-        Invoke(nameof(DestroySelf), 3f);
+        MeshCollider collider = GetComponent<MeshCollider>();
+        if (collider != null)
+        {
+            collider.enabled = true;
+            Invoke(nameof(DestroySelf), 3f);
+        }
+        else
+        {
+            Debug.Log("Projectile missing MeshCollider");
+        }
+        
     }
 
     private void DestroySelf()
@@ -21,7 +31,7 @@ using UnityEngine;
         if (collision.gameObject.name == "EnemyGunner")
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Touched gunner");
+           Debug.Log("Touched gunner");
         }
         else if (collision.gameObject.name == "Player")
         {
@@ -34,7 +44,7 @@ using UnityEngine;
         }
         else {
             Destroy(gameObject);
-            Debug.Log("collided with something else");
+            //Debug.Log("collided with something else");
             Debug.Log(collision.gameObject.name);
         }
         
