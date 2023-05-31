@@ -595,13 +595,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 10
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 60
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -679,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809708351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.4, y: 1.4329996, z: -5.7}
+  m_LocalPosition: {x: -18.3, y: 1.4329996, z: -20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -708,9 +708,11 @@ MonoBehaviour:
     m_Bits: 8
   health: 100
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  sightRange: 0
-  playerInSightRange: 0
+  walkPointRange: 10
+  savedSightRange: 40
+  CurrentSightRange: 40
+  playerInSightRange: 1
+  timeBetweenDodges: 2
 --- !u!1 &880105825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8411076801218294477, guid: 9e0ccdb8b1ea7084b97978235de2ae72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.029999
+      value: 30.4
       objectReference: {fileID: 0}
     - target: {fileID: 8411076801218294477, guid: 9e0ccdb8b1ea7084b97978235de2ae72, type: 3}
       propertyPath: m_LocalRotation.w

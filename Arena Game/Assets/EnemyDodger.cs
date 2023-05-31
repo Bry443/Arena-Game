@@ -14,8 +14,11 @@ public class EnemyDodger : MonoBehaviour
     public float walkPointRange;
 
     //States
-    public float sightRange;
+    public float savedSightRange;
+    public float CurrentSightRange;
     public bool playerInSightRange;
+    public float timeBetweenDodges;
+    
 
     private void Awake()
     {
@@ -31,17 +34,16 @@ public class EnemyDodger : MonoBehaviour
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, CurrentSightRange, whatIsPlayer);
         
         if (!playerInSightRange) Patroling();
-        //if (playerInSightRange) ChasePlayer();
-        while (playerInSightRange) {
-            var rnd = Random.Range(0, 100);
-            if (rnd < 20) {
-                ChasePlayer();
-                }
-            
-        }
+        if (playerInSightRange) ChasePlayer();
+        // while (playerInSightRange) {
+        //     var rnd = Random.Range(0, 100);
+        //     if (rnd < 20) {
+        //         ChasePlayer();
+        //         }
+        //}
     }
 
     private void Patroling()
@@ -58,6 +60,7 @@ public class EnemyDodger : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -73,12 +76,24 @@ public class EnemyDodger : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        Invoke(nameof(Dodge), timeBetweenDodges);
     }
 
-    // visually shows the radius of sightRange
+    private void Dodge()
+    {
+        CurrentSightRange = 3;
+        Invoke(nameof(ResetSight), (timeBetweenDodges / 2));
+    }
+
+    private void ResetSight()
+    {
+        CurrentSightRange = savedSightRange;
+    }
+
+    // visually shows the radius of CurrentSightRange
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, CurrentSightRange);
     }
 }
