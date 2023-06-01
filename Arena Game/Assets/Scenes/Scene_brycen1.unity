@@ -595,7 +595,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 15
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 60
@@ -616,7 +616,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 809708351}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -698,7 +698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea52306641382345acca183ee5330d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
   player: {fileID: 1423373823}
   whatIsGround:
     serializedVersion: 2
@@ -709,10 +708,9 @@ MonoBehaviour:
   health: 100
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
-  savedSightRange: 40
-  CurrentSightRange: 40
+  SightRange: 40
   playerInSightRange: 1
-  timeBetweenDodges: 2
+  timeBetweenDodges: 3
 --- !u!1 &880105825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1825,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1423373823}
+    - target: {fileID: 8411076801218294486, guid: 9e0ccdb8b1ea7084b97978235de2ae72, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8411076801218294486, guid: 9e0ccdb8b1ea7084b97978235de2ae72, type: 3}
       propertyPath: projectile
       value: 
