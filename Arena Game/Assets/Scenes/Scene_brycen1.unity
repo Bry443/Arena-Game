@@ -468,15 +468,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6767038271949703152, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
       propertyPath: walkSpeed
-      value: 15
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6767038271949703152, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
       propertyPath: jumpStamina
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6767038271949703152, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
       propertyPath: sprintSpeed
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6767038271949703152, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
       propertyPath: airMultiplier
@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6767038271949703152, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
       propertyPath: sprintStamina
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36d9fec2f86266949a488b748de0b09d, type: 3}
@@ -596,7 +596,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 15
-  m_Acceleration: 10
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 60
   m_StoppingDistance: 0
