@@ -3,19 +3,22 @@ using UnityEngine.AI;
 
 public class EnemyDodger : MonoBehaviour
 {
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
 
-    //Patroling
+    //Patrolling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
     //States
-    public float sightRange;
+    public float SightRange;
     public bool playerInSightRange;
+    public float timeBetweenDodges;
+    private bool enableDodging = false;
+    private int dodgeCounter = 1;
 
     private void Awake()
     {
@@ -23,28 +26,31 @@ public class EnemyDodger : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // private void Start()
-    // {
-    //     InvokeRepeating("randomNumber", 0, 30);  
-    // }
+    private void Start()
+    {
+        InvokeRepeating("Dodgetimer", timeBetweenDodges, timeBetweenDodges);  
+    }
 
     private void Update()
     {
         //Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, SightRange, whatIsPlayer);
         
-        if (!playerInSightRange) Patroling();
-        //if (playerInSightRange) ChasePlayer();
-        while (playerInSightRange) {
-            var rnd = Random.Range(0, 100);
-            if (rnd < 20) {
-                ChasePlayer();
+        if (!playerInSightRange) Patrolling();
+        if (playerInSightRange) 
+            {
+            if (enableDodging)
+                {
+                    Patrolling();
                 }
-            
-        }
+            else
+                {
+                    ChasePlayer();
+                }
+            }
     }
 
-    private void Patroling()
+    private void Patrolling()
     {
         //Debug.Log("Patrolling");
         if (!walkPointSet) SearchWalkPoint();
@@ -58,6 +64,7 @@ public class EnemyDodger : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+
     private void SearchWalkPoint()
     {
         //Calculate random point in range
@@ -72,13 +79,33 @@ public class EnemyDodger : MonoBehaviour
 
     private void ChasePlayer()
     {
+        // set destination to current player location
         agent.SetDestination(player.position);
     }
 
-    // visually shows the radius of sightRange
+    private void Dodgetimer()
+    {
+        // every 'timeBetweenDodges' switches 'enableDodging' to opposite bool
+        if (dodgeCounter % 2 == 0)
+        {
+            dodgeCounter++;
+            enableDodging = true;
+            agent.speed = 5;
+        }
+        else
+        {
+            enableDodging = false;
+            dodgeCounter++;
+            agent.speed = 15;
+        }
+        
+    }
+
+
+    // visually shows the radius of SightRange
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.DrawWireSphere(transform.position, SightRange);
     }
 }
