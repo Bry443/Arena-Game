@@ -16,5 +16,12 @@ public class Sprint : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) & grounded) {
             Stamina.instance.UseStamina(10);
         }
+
+        if (Input.GetKey("escape"))
+        {
+            Debug.Log("got there");
+            UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+        }
     }
 }
