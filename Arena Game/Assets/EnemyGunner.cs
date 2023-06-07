@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyGunner : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public Transform gunner;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
@@ -90,7 +91,23 @@ public class EnemyGunner : MonoBehaviour
                 //Enable projectile gravity
                 rb.useGravity = true;
                 // Shooting velocity
-                rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                float distanceFromPlayer = (player.position.x - gunner.position.x) + (player.position.y - gunner.position.y);
+                if (distanceFromPlayer < 20 && distanceFromPlayer > -20)
+                {
+                    rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+                    Debug.Log("Shooting close Projectile");
+                }
+                else if ((gunner.position.x - player.position.x) + (gunner.position.y - player.position.y) > 30)
+                {
+                    rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+                    Debug.Log("Shooting middle Projectile");
+                }
+                else
+                {
+                    rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                    Debug.Log("Shooting far Projectile");
+                }
+                Debug.Log(distanceFromPlayer);
                 rb.AddForce(transform.up * 3f, ForceMode.Impulse);
             }
             else {
