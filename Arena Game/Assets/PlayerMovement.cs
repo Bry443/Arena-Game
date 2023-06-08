@@ -15,24 +15,24 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement instance;
 
-    
+
     [Header("Movement Parameters")]
-    public float playerHeight;
-    public float walkSpeed;
-    public float sprintSpeed;
-    public float crouchSpeed;
-    public float jumpForce;
-    public float groundDrag;
-    public float airMultiplier;
+    public float playerHeight = 3;
+    public float walkSpeed = 6;
+    public float sprintSpeed = 10;
+    public float crouchSpeed = 4;
+    public float jumpForce = 10;
+    public float groundDrag = 10;
+    public float airMultiplier = 0;
 
     [Header("Crouching")]
-    public float crouchYScale;
+    public float crouchYScale = 1;
     private float startYScale;
 
     [Header("Stamina Costs")]
     public float currentStamina;
-    public float jumpStamina;
-    public float sprintStamina;
+    public float jumpStamina = 20;
+    public float sprintStamina = 2;
 
     [Header("Ground Check")]
     public LayerMask whatIsGround;
