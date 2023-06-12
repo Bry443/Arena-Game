@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class Restart : MonoBehaviour
 {
     public void StartNew() {
-        SceneManager.LoadScene("Blake's playground");
+        SceneManager.LoadScene("Main_World");
     }
 }
