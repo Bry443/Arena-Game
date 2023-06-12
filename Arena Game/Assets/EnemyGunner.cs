@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
-
+using System;
+    
 public class EnemyGunner : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public Transform gunner;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
@@ -56,8 +58,8 @@ public class EnemyGunner : MonoBehaviour
     private void SearchWalkPoint()
     {
         //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
+        float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
@@ -90,7 +92,12 @@ public class EnemyGunner : MonoBehaviour
                 //Enable projectile gravity
                 rb.useGravity = true;
                 // Shooting velocity
-                rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                // Find player x & z distance from gunner
+                double distanceFromPlayer = Math.Sqrt(Math.Pow((player.position.x - gunner.position.x),2)+Math.Pow((player.position.z - gunner.position.z),2));
+                // convert to float and calculate power
+                float horizontalPower = Convert.ToSingle(distanceFromPlayer * 2);
+                rb.AddForce(transform.forward * horizontalPower, ForceMode.Impulse);
+                Debug.Log(horizontalPower);
                 rb.AddForce(transform.up * 3f, ForceMode.Impulse);
             }
             else {
