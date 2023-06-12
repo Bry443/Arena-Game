@@ -6,17 +6,22 @@ using UnityEngine;
  {
     private void Update()
     {
-        MeshCollider collider = GetComponent<MeshCollider>();
-        if (collider != null)
+		SphereCollider colliderSphere = GetComponent<SphereCollider>();
+        MeshCollider colliderMesh = GetComponent<MeshCollider>();
+		if (colliderSphere != null)
         {
-            collider.enabled = true;
-            Invoke(nameof(DestroySelf), 3f);
+            GetComponent<SphereCollider>().enabled = true;
+            Invoke(nameof(DestroySelf), 10f);
+        }		
+		else if (colliderMesh != null)
+		{
+            GetComponent<MeshCollider>().enabled = true;
+            Invoke(nameof(DestroySelf), 10f);
         }
         else
         {
-            Debug.Log("Projectile missing MeshCollider");
+            Debug.Log("Projectile missing MeshCollider or SphereCollider");
         }
-        
     }
 
     private void DestroySelf()
@@ -43,12 +48,9 @@ using UnityEngine;
             
         }
         else {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             //Debug.Log("collided with something else");
             Debug.Log(collision.gameObject.name);
         }
-        
-     }
-     //Destroy the gameobject 5 seconds after creation
-    //Destroy(gameObject, 5.0f);    
+     } 
  }    
