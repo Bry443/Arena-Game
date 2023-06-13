@@ -20,17 +20,19 @@ public class SayMessage : MonoBehaviour
         talk = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (talk == false)
+        if (other.gameObject.name == "Player")
         {
-            if (collision.gameObject.name == "Player")
-            {
-                talk = true;
-                Debug.Log("COllISION: talk set to " + talk);
-            }
-           
+            talk = true;
+            Debug.Log("COllISION: talk set to " + talk);
         }
+        else
+        {
+            talk = false;
+            Debug.Log("NO COLLISION: talk set to " + talk);
+        }
+           
     }
 
     public bool GetStatus()
