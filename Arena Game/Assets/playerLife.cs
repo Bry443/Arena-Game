@@ -13,9 +13,9 @@ public class playerLife : MonoBehaviour
     }
     [SerializeField] AudioSource deathSound;
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Lava"))
+        while (collision.gameObject.CompareTag("Lava"))
         {
-            GetComponent<Health>().TakeDamage(100);
+            Health.instance.TakeDamage(1);
         }
         
     }
