@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Arena Game/Assets/HUD UI.meta
 guid: 49f5c4df5007e4f449b1a6a6c75ae1fe
 folderAsset: yes
+========
+guid: 3df76a420acd45e4b9897a813f2dce0e
+>>>>>>>> 8c3907fc60c7961a9c6e8649767af80864ed37aa:Arena Game/Assets/Scenes/Settings.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
