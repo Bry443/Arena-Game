@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 519791c79b86b084aaba6c382a22325d
+  - enabled: 1
+    path: Assets/Scenes/Blake's playground.unity
+    guid: 592fa5e4ec104844d958fbe06fac0714
+  - enabled: 1
+    path: Assets/Scenes/Main_World.unity
+    guid: cbcd302cf819bac48a172788fce637a3
   m_configObjects: {}
