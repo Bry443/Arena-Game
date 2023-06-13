@@ -30,7 +30,7 @@ public class Dialogue : MonoBehaviour
     void Update()
     {
 
-        if (SayMessage.instance.GetStatus())
+        if (SayMessage.instance.GetStatus() && Input.GetKeyDown(KeyCode.E))
         {
             if (textComponent.text == lines[index])
             {
