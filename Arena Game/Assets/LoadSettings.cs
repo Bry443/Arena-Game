@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Restart : MonoBehaviour
+public class LoadSettings : MonoBehaviour
 {
-    public void StartNew() {
-        SceneManager.LoadScene("EndGame");
+    public void LoadSettingsScrene() {
+        SceneManager.LoadScene("Settings");
     }
 }
