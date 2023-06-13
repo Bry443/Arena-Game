@@ -97,7 +97,6 @@ public class EnemyGunner : MonoBehaviour
                 // convert to float and calculate power
                 float horizontalPower = Convert.ToSingle(distanceFromPlayer * 2);
                 rb.AddForce(transform.forward * horizontalPower, ForceMode.Impulse);
-                Debug.Log(horizontalPower);
                 rb.AddForce(transform.up * 3f, ForceMode.Impulse);
             }
             else {
@@ -116,6 +115,17 @@ public class EnemyGunner : MonoBehaviour
         alreadyAttacked = false;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        //Check for a match with the specified name on any GameObject that collides with your GameObject
+        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
+        {
+            //If the GameObject's name matches the one you suggest, output this message in the console
+            Debug.Log("Got Shot");
+            TakeDamage(10);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -126,6 +136,7 @@ public class EnemyGunner : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
 
 // Visually shows attack and sight range
     private void OnDrawGizmosSelected()
