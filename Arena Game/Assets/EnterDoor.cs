@@ -26,8 +26,12 @@ public class EnterDoor : MonoBehaviour
                     SceneManager.LoadScene(2);
                     break;
                 case 3:
-                    Debug.Log("Testing Damage from collision");
-                    Health.instance.TakeDamage(10f);
+                    Debug.Log("Loading Level 03");
+                    SceneManager.LoadScene(3);
+                    break;
+                case 4:
+                    Debug.Log("Loading Level 04");
+                    SceneManager.LoadScene(4);
                     break;
                 default:
                     Debug.Log("Invalid Level or no level found");
