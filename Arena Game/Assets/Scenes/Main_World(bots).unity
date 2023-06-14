@@ -862,7 +862,7 @@ PrefabInstance:
     - target: {fileID: 1694775552041950859, guid: beef8772dddeb754e93e066ab4c8be23, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 2103126523}
+      objectReference: {fileID: 5954856958650436193, guid: befa616ba35846741a7c5ed0fda95a7a, type: 3}
     - target: {fileID: 1694775552041950859, guid: beef8772dddeb754e93e066ab4c8be23, type: 3}
       propertyPath: fpsCam
       value: 
