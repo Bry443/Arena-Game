@@ -14,7 +14,7 @@ public class playerLife : MonoBehaviour
 
         if(transform.position.y < 1)
         {
-            Health.instance.TakeDamage(.1f);
+            Health.instance.TakeDamage(.5f);
         }
         
     }
