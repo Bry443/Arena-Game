@@ -2136,7 +2136,7 @@ GameObject:
   - component: {fileID: 1303500754}
   - component: {fileID: 1303500753}
   - component: {fileID: 1303500758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bullett
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2151,7 +2151,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303500752}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2231,7 +2231,7 @@ Transform:
   m_GameObject: {fileID: 1303500752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 62.27527, y: -0.6609648, z: 6.282731}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -2839,6 +2839,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee9c52036232244b904621cb00e22bb, type: 3}
+--- !u!1001 &706786510503304160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 82.88385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.6272054
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.272621
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2064637692007777474, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587891372243504721, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
+      propertyPath: m_Name
+      value: RedBallProjectile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8381aa85abbf034d9467d8c37d47242, type: 3}
 --- !u!1001 &5691413291883601644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2894,14 +2951,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1374353560678530529, guid: 0df5675747b7fa043881a95c32476738, type: 3}
+      propertyPath: walkSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691413292286764041, guid: 0df5675747b7fa043881a95c32476738, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.424
+      objectReference: {fileID: 0}
     - target: {fileID: 5691413292286764041, guid: 0df5675747b7fa043881a95c32476738, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.141
+      value: 0.088
       objectReference: {fileID: 0}
     - target: {fileID: 5691413292286764043, guid: 0df5675747b7fa043881a95c32476738, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1303500752}
+      objectReference: {fileID: 5954856958650436193, guid: befa616ba35846741a7c5ed0fda95a7a, type: 3}
+    - target: {fileID: 5691413292286764043, guid: 0df5675747b7fa043881a95c32476738, type: 3}
+      propertyPath: shootForce
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5691413292286764043, guid: 0df5675747b7fa043881a95c32476738, type: 3}
       propertyPath: magazineSize
       value: 100
