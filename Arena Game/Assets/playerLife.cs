@@ -9,16 +9,22 @@ public class playerLife : MonoBehaviour
     void Update(){
         if (transform.position.y < -4f){
             Die();
+            Health.instance.TakeDamage(20);
         }
-    }
-    [SerializeField] AudioSource deathSound;
-    private void OnCollisionEnter(Collision collision) {
-        while (collision.gameObject.CompareTag("Lava"))
+
+        if(transform.position.y < 1)
         {
-            Health.instance.TakeDamage(1);
+            Health.instance.TakeDamage(.1f);
         }
         
     }
+    // private void OnCollisionEnter(Collision collision) {
+    //     if (collision.gameObject.CompareTag("Lava"))
+    //     {
+    //         Health.instance.TakeDamage(10);
+    //     }
+    // }
+    [SerializeField] AudioSource deathSound;
 
     void Die(){
         GetComponent<MeshRenderer>().enabled = false;
