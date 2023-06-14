@@ -106,7 +106,7 @@ public class projectileGun : MonoBehaviour
         //Instantiate bullet/projectile
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
-        // currentbullett.AddComponent<bullettCollision>();
+        // currentBullet.AddComponent<bulletCollision>();
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         //Add forces to bullet

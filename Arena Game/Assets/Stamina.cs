@@ -60,10 +60,9 @@ public class Stamina : MonoBehaviour
             CurrentStamina += maxStamina / 100;
             staminaBar.value = CurrentStamina;
             yield return regenTick;
-
-            if (CurrentStamina > maxStamina) CurrentStamina = maxStamina;
         }
         regen = null;
+        if (CurrentStamina > maxStamina) CurrentStamina = maxStamina;
     }
 
     // Restore an amount of Stamina
@@ -72,6 +71,8 @@ public class Stamina : MonoBehaviour
         CurrentStamina += amount;
         staminaBar.value = CurrentStamina;
         Debug.Log(amount + " Stamina restored!");
+
+        if (CurrentStamina > maxStamina) CurrentStamina = maxStamina;
     }
 
 
