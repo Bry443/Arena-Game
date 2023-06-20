@@ -431,6 +431,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6629778319955461711}
     - target: {fileID: 1694775552041950859, guid: beef8772dddeb754e93e066ab4c8be23, type: 3}
+      propertyPath: spread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694775552041950859, guid: beef8772dddeb754e93e066ab4c8be23, type: 3}
       propertyPath: playerRb
       value: 
       objectReference: {fileID: 1374353560678530078}
