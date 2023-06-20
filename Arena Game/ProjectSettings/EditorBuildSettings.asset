@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_World(bots).unity
     guid: e94253da5f749a64abca4de6f7f340d2
   - enabled: 1
-    path: Assets/Scenes/Brock's scenes/New Scene.unity
+    path: Assets/Scenes/Brock's scenes/Level 02.unity
     guid: 9427c4432b79f014d81a76db0465bcf1
   - enabled: 1
     path: Assets/Scenes/Blake's playground.unity
