@@ -52,5 +52,10 @@ using UnityEngine;
             //Debug.Log("collided with something else");
             Debug.Log(collision.gameObject.name);
         }
+
+        if (collision.gameObject.name == "Lava")
+        {
+            Destroy(gameObject);
+        }
      } 
  }    
