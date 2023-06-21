@@ -121,7 +121,7 @@ public class EnemyGunner : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Got Shot");
+            //Debug.Log("Got Shot");
             TakeDamage(10);
         }
     }

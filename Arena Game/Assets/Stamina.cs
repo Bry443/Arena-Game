@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Stamina : MonoBehaviour
 {
     public Slider staminaBar;
-    public float maxStamina;
-    public float CurrentStamina;
+    public float maxStamina = 1000f;
+    public static float CurrentStamina = 1000f;
     
     private static float regenRate = 0.1f;
     //private static float drainRate = 1f;
@@ -26,9 +26,10 @@ public class Stamina : MonoBehaviour
     
     void Start()
     {
-        CurrentStamina = maxStamina;
+        //CurrentStamina = maxStamina;
         staminaBar.maxValue = maxStamina;
-        staminaBar.value = maxStamina;
+        staminaBar.value = CurrentStamina;
+        if (CurrentStamina < maxStamina) regen = StartCoroutine(RegenStamina());
     }
 
     public void UseStamina(float amount)
