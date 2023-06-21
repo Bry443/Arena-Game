@@ -334,15 +334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927261907962036239, guid: 97c9d0e086f352c4bb924615e16612bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 165.42307
+      value: 178.41
       objectReference: {fileID: 0}
     - target: {fileID: 2927261907962036239, guid: 97c9d0e086f352c4bb924615e16612bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.15
+      value: 4.16
       objectReference: {fileID: 0}
     - target: {fileID: 2927261907962036239, guid: 97c9d0e086f352c4bb924615e16612bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 154.3223
+      value: 118.51
       objectReference: {fileID: 0}
     - target: {fileID: 2927261907962036239, guid: 97c9d0e086f352c4bb924615e16612bc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1058,18 +1058,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2927261907962036238, guid: 97c9d0e086f352c4bb924615e16612bc, type: 3}
   m_PrefabInstance: {fileID: 70494053}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &659827062
+--- !u!1 &738817336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738817338}
+  - component: {fileID: 738817337}
+  m_Layer: 0
+  m_Name: EnemyGunSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &738817337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659827056}
+  m_GameObject: {fileID: 738817336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86bed54dba57eb84898719d961a91114, type: 3}
+  m_Script: {fileID: 11500000, guid: 4136665f2179bb54ea5afec36e999b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 659827056}
+  spawnTimer: 10
+--- !u!4 &738817338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738817336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 171.5, y: 4.88, z: 157.01431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &820084125
 PrefabInstance:
   m_ObjectHideFlags: 0

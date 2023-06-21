@@ -5,30 +5,39 @@ using UnityEngine;
 public class SpawnNPC : MonoBehaviour
 {
 	public GameObject objectToSpawn;
-	public bool dead = false;
 	public int spawnTimer = 10;
 
 	private GameObject spawnedObject;
+	private bool spawning = false;
 	//private ScriptName scriptName; // local variable to script instance in this object
 
 	void Start()
 	{
-		spawnedObject = Instantiate(objectToSpawn);
-		EnemyGunner gunnerScript = spawnedObject.GetComponent<EnemyGunner>();
+		UnityEngine.AI.NavMeshHit closestHit;
+		if( UnityEngine.AI.NavMesh.SamplePosition(  gameObject.transform.position, out closestHit, 500f, UnityEngine.AI.NavMesh.AllAreas) )
+		{
+			var objectdetails = gameObject.transform;
+  			objectdetails.position = closestHit.position;
+			spawnedObject = Instantiate(objectToSpawn, objectdetails);
+			spawning = false;
+		}
+		else Debug.Log("Failed to find Navmesh!");
 	}
 	
 	void Update()
 	{
-		//if spawnedObject.
-		if (dead)
+		Debug.Log(gameObject.transform.position);
+		//if not already spawning and npc has been destroyed, respawn.
+		if (!spawning && spawnedObject == null) 
 		{
-			Invoke(nameof(Respawn), spawnTimer);
-			dead = false;
+			Invoke(nameof(Start), spawnTimer);
+			spawning = true;
 		}
+
 	}
 	void Respawn()
 	{
-		Start();
-		//spawnedObject = Instantiate(objectToSpawn);
+		spawnedObject = Instantiate(objectToSpawn, gameObject.transform);
+		spawning = false;
 	}
 }
