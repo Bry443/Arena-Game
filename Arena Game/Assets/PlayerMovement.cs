@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>(); // Get Rigidbody component just once
         rb.freezeRotation = true;
         startYScale = transform.localScale.y;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -99,7 +100,10 @@ public class PlayerMovement : MonoBehaviour
         }
        
        
-        
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
 
         // handle drag
         if (grounded) rb.drag = groundDrag;
