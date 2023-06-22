@@ -154,11 +154,11 @@ public class EnemyGunner : MonoBehaviour
             switch (lootScript.value)
             {
                 case 0:
-                    newMaterial = Resources.Load<Material>("Materials/Green.mat");
+                    newMaterial = Resources.Load<Material>("Materials/Green");
                     lootRenderer.material = newMaterial;
                     break;
                 case 1:
-                    newMaterial = Resources.Load<Material>("Materials/Gold.mat");
+                    newMaterial = Resources.Load<Material>("Materials/Gold");
                     lootRenderer.material = newMaterial;
                     break;
             }
