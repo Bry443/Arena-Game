@@ -946,11 +946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 839649990496224792, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 520
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 839649990496224792, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 280
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 839649990496224792, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -967,6 +967,14 @@ PrefabInstance:
     - target: {fileID: 839649990496224796, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
       propertyPath: m_Name
       value: crosshair
+      objectReference: {fileID: 0}
+    - target: {fileID: 839649991558474887, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 839649991558474887, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b6dabc0d3bc5f14f9d2ecf0069ad1df, type: 3}
