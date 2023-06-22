@@ -70,6 +70,12 @@ public class EnemyRunner : MonoBehaviour
             //Debug.Log("Got Shot");
             TakeDamage(10);
         }
+        else if (collision.gameObject.name == "Player")
+        {
+            //If the GameObject's name matches the one you suggest, output this message in the console
+            Debug.Log("Touched player");
+            Health.instance.TakeDamage(7);
+        }
     }
 
     public void TakeDamage(int damage)
