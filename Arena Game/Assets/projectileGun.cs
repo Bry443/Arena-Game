@@ -42,6 +42,13 @@ public class projectileGun : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    private ammo Ammo;
+
+    void Start(){
+        //Ammo = GameObject.Find("PlayerStats").GetComponent<ammo>();
+        //Ammo.UpdateAmmo(magazineSize);
+        ammo.instance.UpdateAmmo(magazineSize);
+    }
     private void Awake()
     {
         //make sure magazine is full
@@ -119,6 +126,7 @@ public class projectileGun : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
+        ammo.instance.UpdateAmmo(bulletsLeft);
 
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
         if (allowInvoke)
@@ -150,6 +158,7 @@ public class projectileGun : MonoBehaviour
     {
         //Fill magazine
         bulletsLeft = magazineSize;
+        ammo.instance.UpdateAmmo(bulletsLeft);
         reloading = false;
     }
 }
