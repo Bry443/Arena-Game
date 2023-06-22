@@ -23,6 +23,9 @@ public class EnemyGunner : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+    
+    //Drop Loot
+    public GameObject Pickup;
 
     private void Awake()
     {
@@ -134,7 +137,19 @@ public class EnemyGunner : MonoBehaviour
     }
     private void DestroyEnemy()
     {
+        SpawnLoot();
         Destroy(gameObject);
+    }
+
+    private void SpawnLoot()
+    {
+        GameObject lootObject = Instantiate(Pickup, transform.position, Quaternion.identity);
+        GiveToPlayer lootScript = lootObject.GetComponent<GiveToPlayer>();
+        if (lootScript != null)
+        {
+            lootScript.value = 2;
+            lootScript.amount = 10;
+        }
     }
     
 

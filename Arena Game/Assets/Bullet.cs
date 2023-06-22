@@ -32,20 +32,12 @@ using UnityEngine;
      //Function will be called when this object hits an object with a collider
      void OnCollisionEnter(Collision collision)
     {    
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "EnemyGunner")
+		if (collision.gameObject.name == "Player")
         {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-           Debug.Log("Touched gunner");
-        }
-        else if (collision.gameObject.name == "Player")
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Touched player");
+            Debug.Log("Damaged player");
             Health.instance.TakeDamage(10);
             //Destroy this gameobject
             Destroy(gameObject);
-            
         }
         else {
             //Destroy(gameObject);
