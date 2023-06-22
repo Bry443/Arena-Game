@@ -45,8 +45,9 @@ public class projectileGun : MonoBehaviour
     private ammo Ammo;
 
     void Start(){
-        Ammo = GameObject.Find("PlayerStats").GetComponent<ammo>();
-        Ammo.UpdateAmmo(magazineSize);
+        //Ammo = GameObject.Find("PlayerStats").GetComponent<ammo>();
+        //Ammo.UpdateAmmo(magazineSize);
+        ammo.instance.UpdateAmmo(magazineSize);
     }
     private void Awake()
     {
@@ -125,7 +126,7 @@ public class projectileGun : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
-        Ammo.UpdateAmmo(bulletsLeft);
+        ammo.instance.UpdateAmmo(bulletsLeft);
 
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
         if (allowInvoke)
@@ -157,7 +158,7 @@ public class projectileGun : MonoBehaviour
     {
         //Fill magazine
         bulletsLeft = magazineSize;
-        Ammo.UpdateAmmo(bulletsLeft);
+        ammo.instance.UpdateAmmo(bulletsLeft);
         reloading = false;
     }
 }
