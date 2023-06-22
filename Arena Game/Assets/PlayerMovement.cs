@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
        
        
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             Application.Quit();
             UnityEditor.EditorApplication.isPlaying = false;
         }
