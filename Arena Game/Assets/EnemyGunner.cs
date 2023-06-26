@@ -26,6 +26,7 @@ public class EnemyGunner : MonoBehaviour
     
     //Drop Loot
     public GameObject Pickup;
+    public Material yourMaterial = Resources.Load("Red", typeof(Material)) as Material;
 
     private void Awake()
     {
@@ -145,6 +146,7 @@ public class EnemyGunner : MonoBehaviour
             {
                 case 0:
                     newMaterial = Resources.Load<Material>("Materials/Green");
+                    // newMaterial = yourMaterial;
                     lootRenderer.material = newMaterial;
                     break;
                 case 1:
