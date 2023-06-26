@@ -10,13 +10,15 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {
             if (Paused) {
                 Play();
             }
@@ -28,6 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     void Stop() {
         PauseMenuCanvas.SetActive(true); 
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         Paused = true;
     }
@@ -36,6 +39,10 @@ public class PauseMenu : MonoBehaviour
         PauseMenuCanvas.SetActive(false); 
         Time.timeScale = 1f;
         Paused = false;
+    }
+
+    public void LoadEndGameScene() {
+        SceneManager.LoadScene("EndGame");
     }
 
     public void MainMenuButton() {
