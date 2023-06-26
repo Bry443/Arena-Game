@@ -10,8 +10,8 @@ public class EnemyGunner : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
 
-    //Patroling
-    public Vector3 walkPoint;
+    //Patrolling
+    private Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
@@ -145,10 +145,24 @@ public class EnemyGunner : MonoBehaviour
     {
         GameObject lootObject = Instantiate(Pickup, transform.position, Quaternion.identity);
         GiveToPlayer lootScript = lootObject.GetComponent<GiveToPlayer>();
-        if (lootScript != null)
+        Renderer lootRenderer = lootObject.GetComponent<Renderer>();
+        if (lootScript != null && lootRenderer != null)
         {
-            lootScript.value = 2;
+            lootScript.value = 1;
             lootScript.amount = 10;
+            Material newMaterial;
+            switch (lootScript.value)
+            {
+                case 0:
+                    newMaterial = Resources.Load<Material>("Materials/Green");
+                    lootRenderer.material = newMaterial;
+                    break;
+                case 1:
+                    newMaterial = Resources.Load<Material>("Materials/Gold");
+                    lootRenderer.material = newMaterial;
+                    break;
+            }
+
         }
     }
     
