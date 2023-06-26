@@ -13,6 +13,7 @@ public class projectileGun : MonoBehaviour
 {
     //bullet 
     public GameObject bullet;
+	public int bulletDamage;
 
     //bullet force
     public float shootForce, upwardForce;
@@ -113,7 +114,8 @@ public class projectileGun : MonoBehaviour
         //Instantiate bullet/projectile
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity); //store instantiated bullet in currentBullet
         //Rotate bullet to shoot direction
-        // currentBullet.AddComponent<bulletCollision>();
+        var bulletscript = currentBullet.AddComponent<PlayerBullet>();
+		bulletscript.bulletDamage = bulletDamage;
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         //Add forces to bullet
