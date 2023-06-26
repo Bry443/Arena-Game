@@ -118,17 +118,6 @@ public class EnemyGunner : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectile"))
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            //Debug.Log("Got Shot");
-            TakeDamage(10);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -145,11 +134,12 @@ public class EnemyGunner : MonoBehaviour
     {
         GameObject lootObject = Instantiate(Pickup, transform.position, Quaternion.identity);
         GiveToPlayer lootScript = lootObject.GetComponent<GiveToPlayer>();
-        Renderer lootRenderer = lootObject.GetComponent<Renderer>();
+        MeshRenderer lootRenderer = lootObject.GetComponent<MeshRenderer>();
         if (lootScript != null && lootRenderer != null)
         {
             lootScript.value = 1;
             lootScript.amount = 10;
+            int randnum = UnityEngine.Random.Range(0, 3);
             Material newMaterial;
             switch (lootScript.value)
             {
@@ -158,6 +148,7 @@ public class EnemyGunner : MonoBehaviour
                     lootRenderer.material = newMaterial;
                     break;
                 case 1:
+                    Debug.Log("Be gold!");
                     newMaterial = Resources.Load<Material>("Materials/Gold");
                     lootRenderer.material = newMaterial;
                     break;
