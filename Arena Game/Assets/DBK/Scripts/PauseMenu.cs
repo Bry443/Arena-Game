@@ -10,8 +10,8 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
         Time.timeScale = 1f;
     }
 
@@ -31,11 +31,14 @@ public class PauseMenu : MonoBehaviour
     void Stop() {
         PauseMenuCanvas.SetActive(true); 
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Paused = true;
     }
 
     public void Play() {
-        PauseMenuCanvas.SetActive(false); 
+        PauseMenuCanvas.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1f;
         Paused = false;
     }
