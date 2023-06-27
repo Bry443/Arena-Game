@@ -26,7 +26,7 @@ public class EnemyGunner : MonoBehaviour
     
     //Drop Loot
     public GameObject Pickup;
-    public Material yourMaterial = Resources.Load("Red", typeof(Material)) as Material;
+    //public Material yourMaterial = Resources.Load("Red", typeof(Material)) as Material;
 
     private void Awake()
     {
