@@ -135,25 +135,23 @@ public class EnemyGunner : MonoBehaviour
     {
         GameObject lootObject = Instantiate(Pickup, transform.position, Quaternion.identity);
         GiveToPlayer lootScript = lootObject.GetComponent<GiveToPlayer>();
-        MeshRenderer lootRenderer = lootObject.GetComponent<MeshRenderer>();
-        if (lootScript != null && lootRenderer != null)
+        if (lootScript != null)
         {
             lootScript.value = 1;
             lootScript.amount = 10;
-            int randnum = UnityEngine.Random.Range(0, 3);
-            Material newMaterial;
+            int randnum = UnityEngine.Random.Range(0, 2);
             switch (lootScript.value)
             {
                 case 0:
-                    newMaterial = Resources.Load<Material>("Materials/Green");
-                    // newMaterial = yourMaterial;
-                    lootRenderer.material = newMaterial;
+                    Debug.Log("Be red!");
                     break;
                 case 1:
-                    Debug.Log("Be gold!");
-                    newMaterial = Resources.Load<Material>("Materials/Gold");
-                    lootRenderer.material = newMaterial;
+                    Debug.Log("Be green!");
                     break;
+                case 2:
+                    Debug.Log("Be gold!");
+                    break;
+
             }
 
         }
