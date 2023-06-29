@@ -54,10 +54,10 @@ public class GiveToPlayer : MonoBehaviour
                     PlayerMovement.instance.BoostSprint(amount);
                     Destroy(gameObject);
                     break;
-                case 4:
-                    projectileGun.bulletsLeft += 1;
-                    Destroy(gameObject);
-                    break;
+                // case 4:
+                //     projectileGun.bulletsLeft += 1;
+                //     Destroy(gameObject);
+                //     break;
                 default:
                     Debug.Log("Effect not found");
                     break;
