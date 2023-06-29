@@ -48,7 +48,7 @@ public class PlayerBullet:MonoBehaviour
         else {
             //Destroy(gameObject);
             //Debug.Log("collided with something else");
-            Debug.Log(collision.gameObject.name);
+            //Debug.Log(collision.gameObject.name);
         }
         if (collision.gameObject.name == "Lava")
         {
