@@ -12,17 +12,17 @@ public class PlayerBullet:MonoBehaviour
         if (colliderSphere != null)
         {
             GetComponent<SphereCollider>().enabled = true;
-            Invoke(nameof(DestroySelf), 10f);
         }		
         else if (colliderMesh != null)
         {
             GetComponent<MeshCollider>().enabled = true;
-            Invoke(nameof(DestroySelf), 10f);
         }
         else
         {
             Debug.Log("Projectile missing MeshCollider or SphereCollider");
         }
+        // call destroyself to erase bullet
+        Invoke(nameof(DestroySelf), 3f);
     }
 
     private void DestroySelf()
@@ -35,14 +35,14 @@ public class PlayerBullet:MonoBehaviour
     {    
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Damaged bot" + bulletDamage); 
+            Debug.Log("Damaged bot by: " + bulletDamage); 
             EnemyGunner gunnerscript = collision.gameObject.GetComponent<EnemyGunner>();
             if (gunnerscript != null) gunnerscript.TakeDamage(bulletDamage);
             EnemyRunner runnerscript = collision.gameObject.GetComponent<EnemyRunner>();
             if (runnerscript != null) runnerscript.TakeDamage(bulletDamage);
-            // EnemyDodger dodgerscript = collision.gameObject.GetComponent<EnemyDodger>();
-            // if (dodgerscript != null) dodgerscript.TakeDamage(bulletDamage);
-            //Destroy this gameobject
+            EnemyDodger dodgerscript = collision.gameObject.GetComponent<EnemyDodger>();
+            if (dodgerscript != null) dodgerscript.TakeDamage(bulletDamage);
+            //Destroy this bullet
             Destroy(gameObject);
         }
         else {

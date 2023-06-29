@@ -11,21 +11,28 @@ public class GiveToPlayer : MonoBehaviour
 	//[SerializeField] private Material myMaterial;
 	public Material healthMaterial;
 	public Material staminaMaterial;
+	public Material boostMaterial;
+	public Material ammoMaterial;
 
 	public MeshRenderer meshRenderer;
-	//public Material healthMaterial;
-	
-	//void Start()
-	//{
-	//	rend = GetComponent<Renderer>();
-	//	rend.enabled = true;
-	//	rend.sharedMaterial = material["Materials/Gold"];
 	//}
 	void Update()
 	{
-		if (value == 0) meshRenderer.material = healthMaterial;
-		if (value == 1) meshRenderer.material = staminaMaterial;
-		//rend.sharedMaterial = material["Materials/Gold"];
+		switch (value)
+            {
+                case 0:
+                    meshRenderer.material = healthMaterial;
+                    break;
+                case 1:
+                    meshRenderer.material = staminaMaterial;
+                    break;
+                case 2:
+                    meshRenderer.material = boostMaterial;
+                    break;
+                case 3:
+                    meshRenderer.material = ammoMaterial;
+                    break;
+            }
 	}
 
     private void OnTriggerEnter(Collider other)

@@ -100,6 +100,24 @@ public class EnemyDodger : MonoBehaviour
         }
         
     }
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+    }
+    
+    private void DestroyEnemy()
+    {
+        //activates the drop script before death
+        DropLoot dropLootScript = GetComponent<DropLoot>();
+        if (dropLootScript != null)
+        {
+            dropLootScript.SpawnLoot();
+        }
+        Destroy(gameObject);
+    }
 
 
     // visually shows the radius of SightRange

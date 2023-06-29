@@ -23,10 +23,6 @@ public class EnemyGunner : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-    
-    //Drop Loot
-    
-    //public Material yourMaterial = Resources.Load("Red", typeof(Material)) as Material;
 
     private void Awake()
     {
@@ -111,8 +107,6 @@ public class EnemyGunner : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-        // Move towards the player
-        //agent.SetDestination(player.position);
     }
     private void ResetAttack()
     {
@@ -127,6 +121,7 @@ public class EnemyGunner : MonoBehaviour
     }
     private void DestroyEnemy()
     {
+        //activates the drop script before death
         DropLoot dropLootScript = GetComponent<DropLoot>();
         if (dropLootScript != null)
         {
@@ -134,33 +129,6 @@ public class EnemyGunner : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
-    // private void SpawnLoot()
-    // {
-    //     GameObject lootObject = Instantiate(Pickup, transform.position, Quaternion.identity);
-    //     GiveToPlayer lootScript = lootObject.GetComponent<GiveToPlayer>();
-    //     if (lootScript != null)
-    //     {
-    //         lootScript.value = 1;
-    //         lootScript.amount = 10;
-    //         int randnum = UnityEngine.Random.Range(0, 2);
-    //         switch (lootScript.value)
-    //         {
-    //             case 0:
-    //                 Debug.Log("Be red!");
-    //                 break;
-    //             case 1:
-    //                 Debug.Log("Be green!");
-    //                 break;
-    //             case 2:
-    //                 Debug.Log("Be gold!");
-    //                 break;
-    //
-    //         }
-    //
-    //     }
-    // }
-    
 
 // Visually shows attack and sight range
     private void OnDrawGizmosSelected()

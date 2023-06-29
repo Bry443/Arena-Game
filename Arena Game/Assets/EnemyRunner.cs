@@ -78,8 +78,15 @@ public class EnemyRunner : MonoBehaviour
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
+
     private void DestroyEnemy()
     {
+		//activates the drop script before death
+        DropLoot dropLootScript = GetComponent<DropLoot>();
+        if (dropLootScript != null)
+        {
+            dropLootScript.SpawnLoot();
+        }
         Destroy(gameObject);
     }
     
