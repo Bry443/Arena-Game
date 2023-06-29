@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d657a6d801af524baf7e665655e63e0, type: 2}
+  - {fileID: 2100000, guid: 9b9a371ecd6ef964a9f4f09756cec8fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   amount: 10
+  healthMaterial: {fileID: 2100000, guid: e0ad469c68260ff458588f052c41588b, type: 2}
+  staminaMaterial: {fileID: 2100000, guid: 8d657a6d801af524baf7e665655e63e0, type: 2}
+  meshRenderer: {fileID: 3738676570751963969}
