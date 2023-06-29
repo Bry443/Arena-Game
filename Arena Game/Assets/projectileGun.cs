@@ -39,6 +39,7 @@ public class projectileGun : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
+    public static projectileGun instance;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -50,11 +51,13 @@ public class projectileGun : MonoBehaviour
         //Ammo.UpdateAmmo(magazineSize);
         ammo.instance.UpdateAmmo(magazineSize);
     }
+
     private void Awake()
     {
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        instance = this;
     }
 
     private void Update()
@@ -65,6 +68,12 @@ public class projectileGun : MonoBehaviour
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
     }
+
+    public void getBulletsLeft(int number){
+        bulletsLeft -= number;
+        ammo.instance.UpdateAmmo(bulletsLeft);
+    }
+
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
@@ -126,9 +135,8 @@ public class projectileGun : MonoBehaviour
         if (muzzleFlash != null)
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
-        bulletsLeft--;
+        getBulletsLeft(1);
         bulletsShot++;
-        ammo.instance.UpdateAmmo(bulletsLeft);
 
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
         if (allowInvoke)

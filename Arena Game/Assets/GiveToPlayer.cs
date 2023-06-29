@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GiveToPlayer : MonoBehaviour
 {
-    [Header("Effects: 0 = Health, 1 = Stamina, \n2 = Damage")]
+    [Header("Effects: 0 = Health, 1 = Stamina, \n3 = Ammo")]
     public int value = 0;
     [Header("Enter the effect magnitude: ")]
     public float amount = 10;
@@ -45,19 +45,14 @@ public class GiveToPlayer : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 case 2:
-                    Debug.Log("Contact with Enemy");
-                    Health.instance.TakeDamage(amount);
-                    Destroy(gameObject);
-                    break;
-                case 3:
                     Debug.Log("Special Power!");
                     PlayerMovement.instance.BoostSprint(amount);
                     Destroy(gameObject);
                     break;
-                // case 4:
-                //     projectileGun.bulletsLeft += 1;
-                //     Destroy(gameObject);
-                //     break;
+                case 3:
+                    projectileGun.instance.getBulletsLeft(-5);
+                    Destroy(gameObject);
+                    break;
                 default:
                     Debug.Log("Effect not found");
                     break;
