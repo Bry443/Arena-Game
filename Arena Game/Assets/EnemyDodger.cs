@@ -101,6 +101,16 @@ public class EnemyDodger : MonoBehaviour
         
     }
     
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            //If the GameObject's name matches the one you suggest, output this message in the console
+            Debug.Log("Touched player");
+            Health.instance.TakeDamage(7);
+        }
+    }
+    
     public void TakeDamage(int damage)
     {
         health -= damage;
