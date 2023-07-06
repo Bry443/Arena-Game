@@ -100,4 +100,8 @@ public class PauseMenu : MonoBehaviour
         Play();                     // Resume game with Play()
     }
 
+    public void ReloadScene() {
+        SceneManager.LoadScene("Level 02");
+    }
+
 }
