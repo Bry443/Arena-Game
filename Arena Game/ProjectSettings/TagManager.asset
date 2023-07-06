@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Lava
+  - LootBox
   layers:
   - Default
   - TransparentFX
