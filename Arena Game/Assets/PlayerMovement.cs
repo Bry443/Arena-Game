@@ -75,7 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (ipnut.GetKeyDown()
+        if (GetState() == MovementState.walking){
+            walkingSound.enabled = true;
+        }
+        else{
+            walkingSound.enabled = false;
+        }
         // Ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
