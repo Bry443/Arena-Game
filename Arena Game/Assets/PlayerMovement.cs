@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource walkingSound;
     // Useful Headers
     [Header("Movement")]
 
@@ -73,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GetState() == MovementState.walking){
+            walkingSound.enabled = true;
+        }
+        else{
+            walkingSound.enabled = false;
+        }
         // Ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
@@ -84,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         // Implements vertical jumps (Can only jump if touching ground)
         if (Input.GetKeyDown(jumpKey) && grounded)
         {
+            jumpSound.Play();
             if (currentStamina > jumpStamina)
             {
                 rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
