@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GiveToPlayer : MonoBehaviour
 {
-    [Header("Effects: 0 = Health, 1 = Stamina, \n3 = Ammo")]
+    [Header("Effects: 0 = Health, 1 = Stamina, \n2 = SpeedBoost, 3 = Ammo")]
     public int value = 0;
     [Header("Enter the effect magnitude: ")]
     public float amount = 10;
-	//[SerializeField] private Material myMaterial;
+
 	public Material healthMaterial;
 	public Material staminaMaterial;
 	public Material boostMaterial;
@@ -39,20 +39,18 @@ public class GiveToPlayer : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
+            Debug.Log("Contact with Pickup");
             switch (value)
             {
                 case 0:
-                    Debug.Log("Contact with Health Pickup");
                     Health.instance.RestoreHealth(amount);
                     Destroy(gameObject);
                     break;
                 case 1:
-                    Debug.Log("Contact with Stamina Pickup");
                     Stamina.instance.RestoreStamina(amount);
                     Destroy(gameObject);
                     break;
                 case 2:
-                    Debug.Log("Special Power!");
                     PlayerMovement.instance.BoostSprint(amount);
                     Destroy(gameObject);
                     break;
@@ -61,7 +59,7 @@ public class GiveToPlayer : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 default:
-                    Debug.Log("Effect not found");
+                    Debug.Log("No pickup type associated with given value");
                     break;
             }
         }

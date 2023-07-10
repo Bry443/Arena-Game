@@ -32,8 +32,9 @@ public class PlayerBullet:MonoBehaviour
 
     //Function will be called when this object hits an object with a collider
     void OnCollisionEnter(Collision collision)
-    {    
-        if (collision.gameObject.CompareTag("Enemy"))
+    {
+        var Hit_entity = collision.gameObject;
+        if (Hit_entity.CompareTag("Enemy"))
         {
             Debug.Log("Damaged bot by: " + bulletDamage); 
             EnemyGunner gunnerscript = collision.gameObject.GetComponent<EnemyGunner>();
@@ -45,12 +46,43 @@ public class PlayerBullet:MonoBehaviour
             //Destroy this bullet
             Destroy(gameObject);
         }
+        else if (Hit_entity.CompareTag("smallLoot"))
+        {
+            Debug.Log("Bullet Collided with LootBox");
+            DropLoot dropLootScript = Hit_entity.GetComponent<DropLoot>();
+            if (dropLootScript != null)
+            {
+                dropLootScript.SpawnLoot("small");
+            }
+            Destroy(collision.transform.gameObject);
+        }
+        else if (Hit_entity.CompareTag("midLoot"))
+        {
+            Debug.Log("Bullet Collided with LootBox");
+            DropLoot dropLootScript = Hit_entity.GetComponent<DropLoot>();
+            if (dropLootScript != null)
+            {
+                dropLootScript.SpawnLoot("mid");
+            }
+            Destroy(collision.transform.gameObject);
+        }
+        else if (Hit_entity.CompareTag("bigLoot"))
+        {
+            Debug.Log("Bullet Collided with LootBox");
+            DropLoot dropLootScript = Hit_entity.GetComponent<DropLoot>();
+            if (dropLootScript != null)
+            {
+                dropLootScript.SpawnLoot("big");
+            }
+            Destroy(collision.transform.gameObject);
+        }
+
         else {
             //Destroy(gameObject);
             //Debug.Log("collided with something else");
             //Debug.Log(collision.gameObject.name);
         }
-        if (collision.gameObject.name == "Lava")
+        if (Hit_entity.name == "Lava")
         {
             Destroy(gameObject);
         }

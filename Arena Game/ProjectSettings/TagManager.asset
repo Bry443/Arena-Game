@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Lava
+  - smallLoot
+  - midLoot
+  - bigLoot
   layers:
   - Default
   - TransparentFX

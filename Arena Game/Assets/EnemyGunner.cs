@@ -125,7 +125,7 @@ public class EnemyGunner : MonoBehaviour
         DropLoot dropLootScript = GetComponent<DropLoot>();
         if (dropLootScript != null)
         {
-            dropLootScript.SpawnLoot();
+            dropLootScript.SpawnLoot("mid");
         }
         Destroy(gameObject);
     }
