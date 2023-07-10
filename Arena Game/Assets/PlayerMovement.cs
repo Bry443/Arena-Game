@@ -165,7 +165,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Force used for moving player character on ground or mid-air
         if (grounded) rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-        else if (!grounded) rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
+        else if (!grounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
+            //Debug.Log("Current Force midair" + rb.GetAccumulatedForce);
+            
+        }
 
     }
 
