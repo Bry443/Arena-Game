@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuCanvas.SetActive(false);
         ItemsMenuCanvas.SetActive(false);
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         Paused = false;
     }
