@@ -19,7 +19,7 @@ public class DropLoot : MonoBehaviour
             {
                 case 0:
                     Debug.Log("Be health");
-                    lootScript.amount = 20 * lootScalar;
+                    lootScript.amount = 50 * lootScalar;
                     break;
                 case 1:
                     Debug.Log("Be stamina");
