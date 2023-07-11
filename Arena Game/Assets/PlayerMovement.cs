@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] AudioSource jumpSound;
-    // [SerializeField] AudioSource walkingSound;
+    //[SerializeField] AudioSource walkingSound;
     // Useful Headers
     [Header("Movement")]
 
@@ -75,12 +75,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // if (GetState() == MovementState.walking){
-        //     walkingSound.enabled = true;
-        // }
-        // else{
-        //     walkingSound.enabled = false;
-        // }
+        //if (GetState() == MovementState.walking){
+        //    walkingSound.enabled = true;
+        //}
+        //else{
+        //    walkingSound.enabled = false;
+        //}
         // Ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 

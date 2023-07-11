@@ -57,7 +57,10 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadEndGameScene() {
-        SceneManager.LoadScene("EndGame");
+        Cursor.lockState = CursorLockMode.None;
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+        Cursor.visible = true;
     }
 
     public void ReturnToMain() {
