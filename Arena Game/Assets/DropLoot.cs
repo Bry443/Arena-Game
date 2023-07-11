@@ -13,7 +13,7 @@ public class DropLoot : MonoBehaviour
         {
             float lootScalar = scaleLoot(size);
 
-            int randnum = UnityEngine.Random.Range(0, 3);
+            int randnum = UnityEngine.Random.Range(0, 6);
             lootScript.value = randnum; // Assign pickup type
             switch (randnum)
             {
@@ -32,6 +32,10 @@ public class DropLoot : MonoBehaviour
                 case 3:
                     Debug.Log("Be ammo");
                     lootScript.amount = 10 * lootScalar;
+                    break;
+                default:
+                    Debug.Log("Be points");
+                    lootScript.amount = 25 * lootScalar;
                     break;
             }
 
