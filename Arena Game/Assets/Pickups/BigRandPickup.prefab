@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 4604031853060896799}
   - component: {fileID: 4604031853060896769}
   - component: {fileID: 4604031853060896798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigRandPickup
   m_TagString: bigLoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4591567333162822699
 Transform:
