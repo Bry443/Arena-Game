@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ammo : MonoBehaviour
+public class PlayerScore : MonoBehaviour
 {
     [SerializeField]
-    private Text _ammoText;
+    private Text _scoreText;
 
-    public static ammo instance;
+    public static PlayerScore instance;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void UpdateAmmo(int count)
+    public void UpdateScore(float amount)
     {
-        _ammoText.text = "Ammo: " + count;
+        _scoreText.text = amount + " Points";
     }
 }

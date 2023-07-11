@@ -116,4 +116,5 @@ MonoBehaviour:
   staminaMaterial: {fileID: 2100000, guid: 8d657a6d801af524baf7e665655e63e0, type: 2}
   boostMaterial: {fileID: 2100000, guid: f88b74c6a536040458380d84e44e9eec, type: 2}
   ammoMaterial: {fileID: 2100000, guid: 408a703f8b49b884097a9c25605b78b5, type: 2}
+  pointsMaterial: {fileID: 2100000, guid: 5f0388c55cc81c343bab5762b50a2ea1, type: 2}
   meshRenderer: {fileID: 3738676570751963969}
