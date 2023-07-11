@@ -10,13 +10,21 @@ public class PlayerScore : MonoBehaviour
 
     public static PlayerScore instance;
 
-    private void Awake()
+    public float currentScore;
+
+    public void Awake()
     {
         instance = this;
     }
 
     public void UpdateScore(float amount)
     {
-        _scoreText.text = amount + " Points";
+        currentScore += amount;
+        _scoreText.text = currentScore + " Points";
+    }
+
+    public float getScore()
+    {
+        return currentScore;
     }
 }
