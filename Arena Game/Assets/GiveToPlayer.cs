@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GiveToPlayer : MonoBehaviour
 {
+    [SerializeField] AudioSource pickupSound;
     [Header("Effects: 0 = Health, 1 = Stamina, \n2 = SpeedBoost, 3 = Ammo, \n4 = Bonus Points")]
     public int value = 0;
     [Header("Enter the effect magnitude: ")]
@@ -43,6 +44,7 @@ public class GiveToPlayer : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
+            pickupSound.Play();
             Debug.Log("Contact with Pickup");
             switch (value)
             {
