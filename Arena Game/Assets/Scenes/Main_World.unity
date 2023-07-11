@@ -1621,6 +1621,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d7ad634caa1c049d49b730cc6d29c683, type: 3}
+--- !u!1 &1221212118 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5897383171006600266, guid: a3892d22bbabedc4da46bbf28e4dfa94, type: 3}
+  m_PrefabInstance: {fileID: 5897383170970522769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1234394573 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
@@ -1711,6 +1716,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7482400964367070133, guid: ac83e994f28d9414a8104bc9a5ee1a5c, type: 3}
+      propertyPath: Pistol
+      value: 
+      objectReference: {fileID: 1966457648}
+    - target: {fileID: 7482400964367070133, guid: ac83e994f28d9414a8104bc9a5ee1a5c, type: 3}
+      propertyPath: Shotgun
+      value: 
+      objectReference: {fileID: 1695239219}
+    - target: {fileID: 7482400964367070133, guid: ac83e994f28d9414a8104bc9a5ee1a5c, type: 3}
+      propertyPath: MachineGun
+      value: 
+      objectReference: {fileID: 1759048462}
+    - target: {fileID: 7482400964367070133, guid: ac83e994f28d9414a8104bc9a5ee1a5c, type: 3}
+      propertyPath: SniperRifle
+      value: 
+      objectReference: {fileID: 1221212118}
     - target: {fileID: 8306875236332191136, guid: ac83e994f28d9414a8104bc9a5ee1a5c, type: 3}
       propertyPath: m_Name
       value: PauseMenuFolder
@@ -2100,6 +2121,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 186ad8f063dbf430da4d56ebc0cb14e0, type: 3}
+--- !u!1 &1695239219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3397585249306092854, guid: a3892d22bbabedc4da46bbf28e4dfa94, type: 3}
+  m_PrefabInstance: {fileID: 5897383170970522769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1759048462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5653521970963551435, guid: a3892d22bbabedc4da46bbf28e4dfa94, type: 3}
+  m_PrefabInstance: {fileID: 5897383170970522769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1786032023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2485,6 +2516,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7795a4f60484ee346a874136729e7fc6, type: 3}
+--- !u!1 &1966457648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3369204809187562924, guid: a3892d22bbabedc4da46bbf28e4dfa94, type: 3}
+  m_PrefabInstance: {fileID: 5897383170970522769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2037974127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 192044, guid: 19682540d8a014522a319b1cf788aee2, type: 3}
