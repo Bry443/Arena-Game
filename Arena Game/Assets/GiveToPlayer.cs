@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GiveToPlayer : MonoBehaviour
 {
-    [Header("Effects: 0 = Health, 1 = Stamina, \n2 = SpeedBoost, 3 = Ammo")]
+    [Header("Effects: 0 = Health, 1 = Stamina, \n2 = SpeedBoost, 3 = Ammo, \n4 = Bonus Points")]
     public int value = 0;
     [Header("Enter the effect magnitude: ")]
     public float amount = 10;
@@ -13,6 +13,7 @@ public class GiveToPlayer : MonoBehaviour
 	public Material staminaMaterial;
 	public Material boostMaterial;
 	public Material ammoMaterial;
+    public Material pointsMaterial;
 
 	public MeshRenderer meshRenderer;
 	//}
@@ -32,6 +33,9 @@ public class GiveToPlayer : MonoBehaviour
                 case 3:
                     meshRenderer.material = ammoMaterial;
                     break;
+                default:
+                    meshRenderer.material = pointsMaterial;
+                    break;
             }
 	}
 
@@ -44,6 +48,7 @@ public class GiveToPlayer : MonoBehaviour
             {
                 case 0:
                     Health.instance.RestoreHealth(amount);
+                    //PlayerScore.instance.UpdateScore(amount);
                     Destroy(gameObject);
                     break;
                 case 1:
@@ -59,7 +64,9 @@ public class GiveToPlayer : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 default:
-                    Debug.Log("No pickup type associated with given value");
+                    Debug.Log("You've been awarded " + amount + " points!");
+                    //PlayerScore.instance.UpdateScore(amount);
+                    Destroy(gameObject);
                     break;
             }
         }
