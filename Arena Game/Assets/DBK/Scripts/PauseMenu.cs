@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuCanvas.SetActive(false);
         ItemsMenuCanvas.SetActive(false);
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         Paused = false;
     }
@@ -59,8 +60,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("EndGame");
     }
 
-    public void MainMenuButton() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    public void ReturnToMain() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene("Main_World");
     }
 
     public void Gun1Button() {
@@ -101,7 +104,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void ReloadScene() {
-        SceneManager.LoadScene("Level 02");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }
