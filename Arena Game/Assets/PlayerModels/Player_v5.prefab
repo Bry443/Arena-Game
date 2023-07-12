@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 6732709868153275011}
   - component: {fileID: 6732709868153275012}
   - component: {fileID: 335206456216685163}
-  - component: {fileID: 6507392106686304356}
   - component: {fileID: 6732709868153275013}
   - component: {fileID: 6732709868153275008}
   - component: {fileID: 6732709868153275009}
@@ -224,19 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSound: {fileID: 0}
---- !u!114 &6507392106686304356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732709868153275014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe722e8e59b1c64c850667aa1a81000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathSound: {fileID: 0}
 --- !u!136 &6732709868153275013
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -292,7 +278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 2281770318812421260}
-  walkingSound: {fileID: 0}
   jumpKey: 32
   sprintKey: 304
   playerHeight: 3

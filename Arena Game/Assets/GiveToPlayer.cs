@@ -67,7 +67,7 @@ public class GiveToPlayer : MonoBehaviour
                     break;
                 default:
                     Debug.Log("You've been awarded " + amount + " points!");
-                    //PlayerScore.instance.UpdateScore(amount);
+                    PlayerScore.instance.UpdateScore(10);
                     Destroy(gameObject);
                     break;
             }
