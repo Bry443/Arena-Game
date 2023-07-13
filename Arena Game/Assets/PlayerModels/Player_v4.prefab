@@ -191,7 +191,6 @@ GameObject:
   - component: {fileID: 4811280329684688313}
   - component: {fileID: 4811280329684688312}
   - component: {fileID: 4811280329684688319}
-  - component: {fileID: 1949106999049557328}
   - component: {fileID: 5036322526051094367}
   - component: {fileID: 4811280329684688318}
   - component: {fileID: 4811280329684688315}
@@ -272,19 +271,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1949106999049557328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4811280329684688317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe722e8e59b1c64c850667aa1a81000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathSound: {fileID: 0}
 --- !u!114 &5036322526051094367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683f2021cdc879a408fb5ff54b87a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
   jumpKey: 32
   sprintKey: 304
   playerHeight: 3
