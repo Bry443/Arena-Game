@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 974356246930689644}
   - component: {fileID: 974356246930689643}
   - component: {fileID: 974356246930689647}
-  - component: {fileID: -1689901108398275233}
+  - component: {fileID: -6939998112232239853}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: Untagged
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b643e781bf6d44fb2f2600481c4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupSound: {fileID: 0}
+  pickupSound: {fileID: -6939998112232239853}
   value: 0
   amount: 50
   healthMaterial: {fileID: 2100000, guid: e0ad469c68260ff458588f052c41588b, type: 2}
@@ -120,7 +120,7 @@ MonoBehaviour:
   ammoMaterial: {fileID: 0}
   pointsMaterial: {fileID: 0}
   meshRenderer: {fileID: 974356246930689644}
---- !u!82 &-1689901108398275233
+--- !u!82 &-6939998112232239853
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

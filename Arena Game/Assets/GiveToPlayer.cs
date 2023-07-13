@@ -44,8 +44,8 @@ public class GiveToPlayer : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            pickupSound.Play();
             Debug.Log("Contact with Pickup");
+            pickupSound.Play();     // This line doesn't seem to do anything, plays the sound before item is touched
             switch (value)
             {
                 case 0:
@@ -67,7 +67,7 @@ public class GiveToPlayer : MonoBehaviour
                     break;
                 default:
                     Debug.Log("You've been awarded " + amount + " points!");
-                    PlayerScore.instance.UpdateScore(10);
+                    PlayerScore.instance.UpdateScore(amount);
                     Destroy(gameObject);
                     break;
             }
